@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/theme-context";
 
 interface CardProps {
   children: React.ReactNode;
@@ -10,17 +11,22 @@ interface CardProps {
 }
 
 export function Card({ children, className, hover = true }: CardProps) {
+  const { theme } = useTheme();
+  
   return (
     <motion.div
       className={cn(
-        "rounded-xl border border-zinc-900/50 bg-zinc-900/20 backdrop-blur-sm p-6",
+        "rounded-xl border backdrop-blur-sm p-6",
+        theme === 'dark' 
+          ? 'border-zinc-900/50 bg-zinc-900/20' 
+          : 'border-zinc-200/50 bg-zinc-50/50',
         className
       )}
       whileHover={
         hover
           ? {
-              borderColor: "rgba(255, 255, 255, 0.1)",
-              backgroundColor: "rgba(24, 24, 27, 0.4)",
+              borderColor: theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+              backgroundColor: theme === 'dark' ? "rgba(24, 24, 27, 0.4)" : "rgba(255, 255, 255, 0.8)",
               transition: { duration: 0.2 },
             }
           : undefined
@@ -46,8 +52,14 @@ interface CardTitleProps {
 }
 
 export function CardTitle({ children, className }: CardTitleProps) {
+  const { theme } = useTheme();
+  
   return (
-    <h3 className={cn("text-lg font-semibold text-white", className)}>
+    <h3 className={cn(
+      "text-lg font-semibold",
+      theme === 'dark' ? 'text-white' : 'text-black',
+      className
+    )}>
       {children}
     </h3>
   );
@@ -59,8 +71,14 @@ interface CardDescriptionProps {
 }
 
 export function CardDescription({ children, className }: CardDescriptionProps) {
+  const { theme } = useTheme();
+  
   return (
-    <p className={cn("text-sm text-zinc-400 mt-1", className)}>{children}</p>
+    <p className={cn(
+      "text-sm mt-1",
+      theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600',
+      className
+    )}>{children}</p>
   );
 }
 
@@ -70,5 +88,12 @@ interface CardContentProps {
 }
 
 export function CardContent({ children, className }: CardContentProps) {
-  return <div className={cn("text-zinc-300", className)}>{children}</div>;
+  const { theme } = useTheme();
+  
+  return (
+    <div className={cn(
+      theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700',
+      className
+    )}>{children}</div>
+  );
 }

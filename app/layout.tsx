@@ -26,7 +26,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-black text-white transition-colors duration-300">
+      <body className="min-h-screen transition-colors duration-300">
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Navigation />

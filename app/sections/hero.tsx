@@ -44,7 +44,9 @@ export function Hero() {
                 {/* Profile image with slanted background */}
                 <div className="relative">
                   <div
-                    className="absolute inset-0 bg-white z-10"
+                    className={`absolute inset-0 z-10 ${
+                      theme === 'dark' ? 'bg-white' : 'bg-zinc-900'
+                    }`}
                     style={{
                       clipPath: "polygon(0% 0%, 70% 0%, 100% 100%, 30% 100%)",
                     }}

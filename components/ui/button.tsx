@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/theme-context";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -20,18 +21,28 @@ export function Button({
   onClick,
   href,
 }: ButtonProps) {
+  const { theme } = useTheme();
+  
   const baseStyles =
     "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg";
 
   const variants = {
     primary:
-      "bg-white text-black hover:bg-white/90 active:scale-95 shadow-sm",
+      theme === 'dark' 
+        ? "bg-white text-black hover:bg-white/90 active:scale-95 shadow-sm"
+        : "bg-black text-white hover:bg-black/90 active:scale-95 shadow-sm",
     secondary:
-      "bg-zinc-900 text-white hover:bg-zinc-800 active:scale-95 border border-zinc-800",
+      theme === 'dark'
+        ? "bg-zinc-900 text-white hover:bg-zinc-800 active:scale-95 border border-zinc-800"
+        : "bg-zinc-100 text-black hover:bg-zinc-200 active:scale-95 border border-zinc-300",
     outline:
-      "border border-zinc-800 text-white hover:bg-zinc-900 active:scale-95",
+      theme === 'dark'
+        ? "border border-zinc-800 text-white hover:bg-zinc-900 active:scale-95"
+        : "border border-zinc-300 text-black hover:bg-zinc-100 active:scale-95",
     ghost:
-      "text-white hover:bg-zinc-800/50 active:scale-95",
+      theme === 'dark'
+        ? "text-white hover:bg-zinc-800/50 active:scale-95"
+        : "text-black hover:bg-zinc-200/50 active:scale-95",
   };
 
   const sizes = {
