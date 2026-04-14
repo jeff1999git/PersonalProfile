@@ -29,7 +29,7 @@ export function Hero() {
       <Container className="relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-4rem)] py-20 lg:py-0">
           {/* Left Content - Image + Name + Button */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:mt-0">
             <FadeIn delay={0.2}>
               <div className="relative mb-8">
                 {/* Profile image with slanted background */}
@@ -93,7 +93,7 @@ export function Hero() {
           </div>
 
           {/* Right Content - About Me + Stats */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center lg:mt-0">
             <FadeIn delay={0.3}>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 About Me
