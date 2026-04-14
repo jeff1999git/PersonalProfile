@@ -13,13 +13,14 @@ export function Card({ children, className, hover = true }: CardProps) {
   return (
     <motion.div
       className={cn(
-        "rounded-xl border border-zinc-800 bg-zinc-900/50 p-6",
+        "rounded-xl border border-zinc-900/50 bg-zinc-900/20 backdrop-blur-sm p-6",
         className
       )}
       whileHover={
         hover
           ? {
-              borderColor: "rgba(255, 255, 255, 0.2)",
+              borderColor: "rgba(255, 255, 255, 0.1)",
+              backgroundColor: "rgba(24, 24, 27, 0.4)",
               transition: { duration: 0.2 },
             }
           : undefined

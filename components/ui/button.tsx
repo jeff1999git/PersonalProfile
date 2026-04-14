@@ -25,11 +25,11 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-white text-black hover:bg-white/90 active:scale-95",
+      "bg-white text-black hover:bg-white/90 active:scale-95 shadow-sm",
     secondary:
-      "bg-zinc-800 text-white hover:bg-zinc-700 active:scale-95",
+      "bg-zinc-900 text-white hover:bg-zinc-800 active:scale-95 border border-zinc-800",
     outline:
-      "border border-zinc-700 text-white hover:bg-zinc-800 active:scale-95",
+      "border border-zinc-800 text-white hover:bg-zinc-900 active:scale-95",
     ghost:
       "text-white hover:bg-zinc-800/50 active:scale-95",
   };
