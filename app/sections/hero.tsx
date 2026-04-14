@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { FadeIn } from "@/components/ui/fade-in";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Github, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 
 export function Hero() {
@@ -93,23 +93,45 @@ export function Hero() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.6}>
-              <motion.a
-                href="#contact"
-                className={`inline-flex items-center gap-3 group ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}
-                whileHover={{ x: 4 }}
-              >
-                <span className="text-sm tracking-wide font-medium">CONNECT</span>
-                <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
-                  theme === 'dark' 
-                    ? 'border-zinc-700 group-hover:bg-white group-hover:text-black' 
-                    : 'border-zinc-300 group-hover:bg-black group-hover:text-white'
-                }`}>
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-              </motion.a>
+            
+            {/* Social Media Links */}
+            <FadeIn delay={0.7}>
+              <div className="flex flex-row gap-4 mt-0.5">
+                <motion.a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-3 group ${
+                    theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'
+                  } transition-colors`}
+                  whileHover={{ x: 4 }}
+                >
+                  <Github className="h-5 w-5" />
+                  <span className="text-sm">GitHub</span>
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-3 group ${
+                    theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'
+                  } transition-colors`}
+                  whileHover={{ x: 4 }}
+                >
+                  <Linkedin className="h-5 w-5" />
+                  <span className="text-sm">LinkedIn</span>
+                </motion.a>
+                <motion.a
+                  href="mailto:hello@example.com"
+                  className={`flex items-center gap-3 group ${
+                    theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'
+                  } transition-colors`}
+                  whileHover={{ x: 4 }}
+                >
+                  <Mail className="h-5 w-5" />
+                  <span className="text-sm">Gmail</span>
+                </motion.a>
+              </div>
             </FadeIn>
           </div>
 
