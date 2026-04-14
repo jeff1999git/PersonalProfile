@@ -41,7 +41,11 @@ export function About() {
   const { theme } = useTheme();
 
   return (
-    <section id="about" className="py-24 lg:py-32">
+    <section id="about" className={`py-24 lg:py-32 border-t ${
+      theme === 'dark' 
+        ? 'bg-black border-zinc-800/50' 
+        : 'bg-white border-zinc-200/50'
+    }`}>
       <Container>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
