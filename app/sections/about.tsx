@@ -93,9 +93,13 @@ export function About() {
           <StaggerContainer className="grid sm:grid-cols-2 gap-4">
             {services.map((service) => (
               <StaggerItem key={service.title}>
-                <Card className={`h-full ${
+                <Card className={`h-full transition-all duration-200 hover:scale-[1.02] ${
+                  theme === 'dark' 
+                    ? 'hover:bg-zinc-900/40 hover:border-zinc-700' 
+                    : 'hover:bg-zinc-100 hover:border-zinc-300'
+                } ${
                   theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
-                }`}>
+                }`} hover={false}>
                   <service.icon className={`h-8 w-8 mb-4 ${
                     theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
                   }`} />

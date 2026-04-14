@@ -25,8 +25,9 @@ export function Card({ children, className, hover = true }: CardProps) {
       whileHover={
         hover
           ? {
-              borderColor: theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
-              backgroundColor: theme === 'dark' ? "rgba(24, 24, 27, 0.4)" : "rgba(255, 255, 255, 0.8)",
+              scale: 1.02,
+              borderColor: theme === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
+              backgroundColor: theme === 'dark' ? "rgba(24, 24, 27, 0.5)" : "rgba(248, 250, 252, 0.9)",
               transition: { duration: 0.2 },
             }
           : undefined

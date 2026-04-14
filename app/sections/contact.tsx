@@ -62,9 +62,13 @@ export function Contact() {
           <StaggerContainer className="space-y-4">
             {contactInfo.map((item) => (
               <StaggerItem key={item.label}>
-                <Card className={`group ${
+                <Card className={`group transition-all duration-200 hover:scale-[1.02] ${
+                  theme === 'dark' 
+                    ? 'hover:bg-zinc-900/40 hover:border-zinc-700' 
+                    : 'hover:bg-zinc-100 hover:border-zinc-300'
+                } ${
                   theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
-                }`}>
+                }`} hover={false}>
                   <CardContent className="flex items-center justify-between p-4">
                     <div className="flex items-center gap-4">
                       <div className={`p-2 rounded-lg ${

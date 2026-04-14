@@ -62,9 +62,13 @@ export function Projects() {
         <StaggerContainer className="grid md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <StaggerItem key={project.title}>
-              <Card className={`h-full flex flex-col ${
-                theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
-              }`}>
+              <Card className={`h-full flex flex-col transition-all duration-200 hover:scale-[1.02] ${
+                  theme === 'dark' 
+                    ? 'hover:bg-zinc-900/40 hover:border-zinc-700' 
+                    : 'hover:bg-zinc-100 hover:border-zinc-300'
+                } ${
+                  theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
+                }`} hover={false}>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
