@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/contexts/theme-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,14 +26,16 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-black text-white">
-        <div className="flex min-h-screen flex-col">
-          <Navigation />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+      <body className="min-h-screen bg-black text-white transition-colors duration-300">
+        <ThemeProvider>
+          <div className="flex min-h-screen flex-col">
+            <Navigation />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

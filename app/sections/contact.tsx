@@ -6,6 +6,7 @@ import { Heading, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
 import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 
 const contactInfo = [
   {
@@ -29,8 +30,12 @@ const contactInfo = [
 ];
 
 export function Contact() {
+  const { theme } = useTheme();
+
   return (
-    <section id="contact" className="py-24 lg:py-32 border-t border-zinc-800/50">
+    <section id="contact" className={`py-24 lg:py-32 border-t ${
+      theme === 'dark' ? 'border-zinc-800/50' : 'border-zinc-200/50'
+    }`}>
       <Container>
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
@@ -55,18 +60,32 @@ export function Contact() {
           <StaggerContainer className="space-y-4">
             {contactInfo.map((item) => (
               <StaggerItem key={item.label}>
-                <Card className="group">
+                <Card className={`group ${
+                  theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
+                }`}>
                   <CardContent className="flex items-center justify-between p-4">
                     <div className="flex items-center gap-4">
-                      <div className="p-2 rounded-lg bg-zinc-800">
-                        <item.icon className="h-5 w-5 text-zinc-400" />
+                      <div className={`p-2 rounded-lg ${
+                        theme === 'dark' ? 'bg-zinc-800' : 'bg-zinc-200'
+                      }`}>
+                        <item.icon className={`h-5 w-5 ${
+                          theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                        }`} />
                       </div>
                       <div>
-                        <p className="text-sm text-zinc-500">{item.label}</p>
-                        <p className="text-white font-medium">{item.value}</p>
+                        <p className={`text-sm ${
+                          theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'
+                        }`}>{item.label}</p>
+                        <p className={`font-medium ${
+                          theme === 'dark' ? 'text-white' : 'text-black'
+                        }`}>{item.value}</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-5 w-5 text-zinc-600 group-hover:text-white transition-colors" />
+                    <ArrowUpRight className={`h-5 w-5 transition-colors ${
+                      theme === 'dark' 
+                        ? 'text-zinc-600 group-hover:text-white' 
+                        : 'text-zinc-400 group-hover:text-black'
+                    }`} />
                   </CardContent>
                 </Card>
               </StaggerItem>

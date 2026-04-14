@@ -5,16 +5,25 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { FadeIn } from "@/components/ui/fade-in";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 
 export function Hero() {
+  const { theme } = useTheme();
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-black to-zinc-950" />
+      <div className={`absolute inset-0 bg-gradient-to-br ${
+        theme === 'dark' 
+          ? 'from-zinc-950 via-black to-zinc-950' 
+          : 'from-zinc-100 via-white to-zinc-50'
+      }`} />
 
       {/* Animated background orbs */}
       <motion.div
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-zinc-800/20 rounded-full blur-3xl"
+        className={`absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-3xl ${
+          theme === 'dark' ? 'bg-zinc-800/20' : 'bg-zinc-300/20'
+        }`}
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.1, 0.15, 0.1],
@@ -27,9 +36,9 @@ export function Hero() {
       />
 
       <Container className="relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-4rem)] py-20 lg:py-0">
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-16 items-center min-h-[calc(100vh-4rem)] py-20 lg:py-0">
           {/* Left Content - Image + Name + Button */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:mt-0">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:mt-0 lg:justify-self-start lg:pr-12">
             <FadeIn delay={0.2}>
               <div className="relative mb-8">
                 {/* Profile image with slanted background */}
@@ -59,7 +68,9 @@ export function Hero() {
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-2">
+              <h1 className={`text-4xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] mb-2 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
                 JEFFIN
                 <br />
                 <span className="font-light text-3xl sm:text-4xl lg:text-5xl">JOSE V</span>
@@ -67,13 +78,17 @@ export function Hero() {
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <p className="text-zinc-400 text-sm tracking-widest uppercase mb-2">
+              <p className={`text-sm tracking-widest uppercase mb-2 ${
+                theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+              }`}>
                 FULL-STACK DEVELOPER
               </p>
             </FadeIn>
 
             <FadeIn delay={0.5}>
-              <p className="text-zinc-500 text-lg mb-8">
+              <p className={`text-lg mb-8 ${
+                theme === 'dark' ? 'text-zinc-500' : 'text-zinc-700'
+              }`}>
                 Design. Code. Ship.
               </p>
             </FadeIn>
@@ -81,27 +96,42 @@ export function Hero() {
             <FadeIn delay={0.6}>
               <motion.a
                 href="#contact"
-                className="inline-flex items-center gap-3 text-white group"
+                className={`inline-flex items-center gap-3 group ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}
                 whileHover={{ x: 4 }}
               >
                 <span className="text-sm tracking-wide font-medium">CONNECT</span>
-                <div className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
+                  theme === 'dark' 
+                    ? 'border-zinc-700 group-hover:bg-white group-hover:text-black' 
+                    : 'border-zinc-300 group-hover:bg-black group-hover:text-white'
+                }`}>
                   <ArrowRight className="h-4 w-4" />
                 </div>
               </motion.a>
             </FadeIn>
           </div>
 
+          {/* Vertical Separator */}
+          <div className={`hidden lg:block h-64 w-px ${
+            theme === 'dark' ? 'bg-white/20' : 'bg-black/20'
+          }`} />
+
           {/* Right Content - About Me + Stats */}
-          <div className="flex flex-col justify-center lg:mt-0">
+          <div className="flex flex-col justify-center lg:mt-0 lg:justify-self-end lg:pl-12">
             <FadeIn delay={0.3}>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              <h2 className={`text-3xl lg:text-4xl font-bold mb-6 ${
+                theme === 'dark' ? 'text-white' : 'text-black'
+              }`}>
                 About Me
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <div className="space-y-4 text-zinc-300 mb-8">
+              <div className={`space-y-4 mb-8 ${
+                theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'
+              }`}>
                 <p className="leading-relaxed">
                   I'm a passionate full-stack developer with a love for creating elegant, 
                   user-friendly web applications. With expertise in modern technologies 
@@ -120,28 +150,52 @@ export function Hero() {
             <FadeIn delay={0.5}>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <motion.div
-                  className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 text-center"
+                  className={`border rounded-lg p-4 text-center ${
+                    theme === 'dark' 
+                      ? 'bg-zinc-900/50 border-zinc-800' 
+                      : 'bg-zinc-100/50 border-zinc-300'
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-2xl font-bold text-white mb-1">5+</div>
-                  <div className="text-xs text-zinc-400 uppercase tracking-wide">Years Experience</div>
+                  <div className={`text-2xl font-bold mb-1 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>5+</div>
+                  <div className={`text-xs uppercase tracking-wide ${
+                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                  }`}>Years Experience</div>
                 </motion.div>
                 <motion.div
-                  className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 text-center"
+                  className={`border rounded-lg p-4 text-center ${
+                    theme === 'dark' 
+                      ? 'bg-zinc-900/50 border-zinc-800' 
+                      : 'bg-zinc-100/50 border-zinc-300'
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-2xl font-bold text-white mb-1">50+</div>
-                  <div className="text-xs text-zinc-400 uppercase tracking-wide">Projects Completed</div>
+                  <div className={`text-2xl font-bold mb-1 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>50+</div>
+                  <div className={`text-xs uppercase tracking-wide ${
+                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                  }`}>Projects Completed</div>
                 </motion.div>
                 <motion.div
-                  className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 text-center"
+                  className={`border rounded-lg p-4 text-center ${
+                    theme === 'dark' 
+                      ? 'bg-zinc-900/50 border-zinc-800' 
+                      : 'bg-zinc-100/50 border-zinc-300'
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-2xl font-bold text-white mb-1">20+</div>
-                  <div className="text-xs text-zinc-400 uppercase tracking-wide">Happy Clients</div>
+                  <div className={`text-2xl font-bold mb-1 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>20+</div>
+                  <div className={`text-xs uppercase tracking-wide ${
+                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                  }`}>Happy Clients</div>
                 </motion.div>
               </div>
             </FadeIn>
