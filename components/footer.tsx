@@ -17,7 +17,7 @@ export function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <p className="text-sm text-zinc-600">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Jeffin Jose V. All rights reserved.
           </p>
           <p className="text-sm text-zinc-700">
             Built with Next.js & Tailwind CSS

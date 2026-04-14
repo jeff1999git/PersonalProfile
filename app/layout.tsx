@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Developer Portfolio",
-  description: "A modern developer portfolio built with Next.js",
+  title: "Jeffin Jose V | Full-Stack Developer",
+  description: "Portfolio of Jeffin Jose V - Full-stack developer specializing in creating elegant, high-performance web applications.",
 };
 
 export default function RootLayout({
