@@ -68,20 +68,11 @@ export function Hero() {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <FadeIn delay={0.2}>
               <div className="relative">
-                {/* Status badge */}
-                <motion.div
-                  className="absolute -top-4 right-0 z-30 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-black/80 backdrop-blur-sm"
-                  whileHover={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-                >
-                  <Sparkles className="h-3 w-3 text-zinc-400" />
-                  <span className="text-xs text-zinc-400 tracking-wide">Available for work</span>
-                </motion.div>
-
                 {/* Slanted background shape */}
                 <div
                   className="absolute inset-0 bg-white z-10"
                   style={{
-                    clipPath: "polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%)",
+                    clipPath: "polygon(0% 0%, 70% 0%, 100% 100%, 30% 100%)",
                   }}
                 />
 
