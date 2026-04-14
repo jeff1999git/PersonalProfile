@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       <Hero />
+      <div className="w-full border-t border-zinc-800/50" />
       <About />
       <Projects />
       <Contact />
