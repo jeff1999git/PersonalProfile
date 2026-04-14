@@ -6,7 +6,6 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 
 const navLinks = [
-  { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
