@@ -5,11 +5,11 @@ import { ThemeSeparator } from "@/components/theme-separator";
 
 export default function Home() {
   return (
-    <main className="flex-1">
+    <div className="flex-1">
       <Hero />
       <ThemeSeparator />
       <Projects />
       <Contact />
-    </main>
+    </div>
   );
 }

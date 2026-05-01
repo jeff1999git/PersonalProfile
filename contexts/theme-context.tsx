@@ -12,24 +12,15 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('theme') as Theme) || 'dark';
     }
-  }, []);
+    return 'dark';
+  });
 
   useEffect(() => {
-    if (mounted) {
-      localStorage.setItem('theme', theme);
-    }
-  }, [theme, mounted]);
-
-  useEffect(() => {
+    localStorage.setItem('theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
       document.body.classList.add('bg-black', 'text-white');
@@ -39,7 +30,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.body.classList.add('bg-white', 'text-black');
       document.body.classList.remove('bg-black', 'text-white');
     }
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {

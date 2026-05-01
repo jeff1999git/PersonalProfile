@@ -34,7 +34,7 @@ export function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Jeffin
+            Jeff.
           </motion.a>
 
           <div className="hidden md:flex items-center gap-8">
