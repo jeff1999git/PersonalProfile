@@ -14,7 +14,7 @@ const professionalProjects = [
     description: "Built a real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
     tags: ["React Native", "Sendbird", "In-App Subscription"],
     company: "NewagesysIT",
-    liveUrl: "#",
+    liveUrl: "https://staging.sooldd.com/",
     repoUrl: "#",
   },
   {
@@ -22,7 +22,7 @@ const professionalProjects = [
     description: "Developed a travel booking platform with itinerary browsing, payment integration, and seamless user onboarding.",
     tags: ["React Native", "Stripe", "Social Auth"],
     company: "NewagesysIT",
-    liveUrl: "#",
+    liveUrl: "https://easyvacayplanner.com/",
     repoUrl: "#",
   },
   {
@@ -30,13 +30,13 @@ const professionalProjects = [
     description: "Created a platform connecting parents with verified caregivers, featuring real-time chat and booking system.",
     tags: ["React Native", "Socket.io", "Swagger"],
     company: "NewagesysIT",
-    liveUrl: "#",
+    liveUrl: "https://www.auntie-app.com/",
     repoUrl: "#",
   },
   {
     title: "EVENT APP",
     description: "Full-stack event management platform with admin and user apps, supporting event creation, scheduling, and booking.",
-    tags: ["Flutter", "Node.js", "SQL"],
+    tags: ["Flutter", "Node.js", "SQL", "Express"],
     company: "Logix Space Technologies Pvt Ltd",
     liveUrl: "#",
     repoUrl: "#",
@@ -46,31 +46,31 @@ const professionalProjects = [
 const coreProducts = [
   {
     title: "NoWaitr",
-    description: "A queue management and restaurant ordering system to eliminate wait times.",
-    tags: ["React Native", "Node.js", "MongoDB"],
+    description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
+    tags: ["ImageKit", "QRCode.react", "Resend API"],
     liveUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/jeff1999git/NoWaitr",
   },
   {
     title: "BookNGo",
-    description: "A booking platform for services and appointments with real-time availability.",
+    description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
     tags: ["React", "Node.js", "PostgreSQL"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://bookngo-one.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/Bookngo",
   },
   {
     title: "JVS Water Supply",
-    description: "Water supply management system with order tracking and delivery scheduling.",
-    tags: ["React Native", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    repoUrl: "#",
+    description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
+    tags: ["TailwindCSS", "Turborepo", "MongoDB"],
+    liveUrl: "https://jv-swatersupply-web.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
   },
   {
     title: "DD Ammini",
-    description: "A digital storefront for a local business with inventory and order management.",
-    tags: ["React", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    repoUrl: "#",
+    description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
+    tags: ["Next.js", "Node.js", "Vercel"],
+    liveUrl: "https://dd-aminni.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/DDAminni",
   },
 ];
 
@@ -79,36 +79,31 @@ const otherProjects = [
     title: "Ulsaaham",
     description: "Event management and ticketing platform for local community events.",
     tags: ["React", "Node.js"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://ulsaaham.com/",
+    repoUrl: "https://github.com/jeff1999git/ulsaaham.com",
   },
   {
     title: "Flavory",
     description: "A recipe discovery and meal planning app with curated food content.",
     tags: ["React Native", "Firebase"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://flavory-nu.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/Flavory",
   },
   {
     title: "Seffer Exports",
     description: "Business website and product catalogue for an export company.",
     tags: ["Next.js", "Tailwind CSS"],
-    liveUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    title: "DD Ammini Dashboard",
-    description: "Admin dashboard for managing orders, inventory and analytics for DD Ammini.",
-    tags: ["React", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://seffer-exports.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/SefferExports",
   },
 ];
 
 function ProjectCard({
   project,
+  showRepo = true,
 }: {
   project: { title: string; description: string; tags: string[]; liveUrl: string; repoUrl: string; company?: string };
+  showRepo?: boolean;
 }) {
   const { theme } = useTheme();
   return (
@@ -138,14 +133,18 @@ function ProjectCard({
           ))}
         </div>
         <div className="flex gap-3 mt-auto">
-          <Button href={project.liveUrl} variant="secondary" size="sm" className="flex-1">
-            <ExternalLink className="h-4 w-4 mr-2" />
-            Live Demo
-          </Button>
-          <Button href={project.repoUrl} variant="outline" size="sm" className="flex-1">
-            <Code2 className="h-4 w-4 mr-2" />
-            Code
-          </Button>
+          {project.liveUrl !== "#" && (
+            <Button href={project.liveUrl} variant="secondary" size="sm" className="flex-1" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Live URL
+            </Button>
+          )}
+          {showRepo && project.repoUrl !== "#" && (
+            <Button href={project.repoUrl} variant="outline" size="sm" className="flex-1" target="_blank" rel="noopener noreferrer">
+              <Code2 className="h-4 w-4 mr-2" />
+              Code
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
@@ -181,7 +180,7 @@ export function Projects() {
         <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-20">
           {professionalProjects.map((project) => (
             <StaggerItem key={project.title}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} showRepo={false} />
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -189,7 +188,7 @@ export function Projects() {
         {/* Core Products */}
         <FadeIn className="mb-6">
           <h3 className={`text-xl font-bold mb-1 ${theme === "dark" ? "text-white" : "text-black"}`}>
-            Core Products
+            Independent Works
           </h3>
           <p className="text-sm text-zinc-500">Independent products &amp; apps</p>
         </FadeIn>
@@ -205,9 +204,9 @@ export function Projects() {
         {/* Other Projects */}
         <FadeIn className="mb-6">
           <h3 className={`text-xl font-bold mb-1 ${theme === "dark" ? "text-white" : "text-black"}`}>
-            Other Projects
+            Company Dashboards
           </h3>
-          <p className="text-sm text-zinc-500">Dashboards &amp; side builds</p>
+          <p className="text-sm text-zinc-500">Dashboards &amp; landing Pages</p>
         </FadeIn>
 
         <StaggerContainer className="grid md:grid-cols-2 gap-6">

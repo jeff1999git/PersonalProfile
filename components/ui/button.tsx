@@ -11,6 +11,8 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export function Button({
@@ -20,6 +22,8 @@ export function Button({
   className,
   onClick,
   href,
+  target,
+  rel,
 }: ButtonProps) {
   const { theme } = useTheme();
   
@@ -57,6 +61,8 @@ export function Button({
     <Component
       href={href}
       onClick={onClick}
+      target={target}
+      rel={rel}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
