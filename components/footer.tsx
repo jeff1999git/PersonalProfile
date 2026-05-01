@@ -25,11 +25,6 @@ export function Footer() {
           }`}>
             © {currentYear} Jeffin Jose V. All rights reserved.
           </p>
-          <p className={`text-sm ${
-            theme === 'dark' ? 'text-zinc-700' : 'text-zinc-500'
-          }`}>
-            Built with Next.js & Tailwind CSS
-          </p>
         </motion.div>
       </Container>
     </footer>

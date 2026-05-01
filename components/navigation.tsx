@@ -7,7 +7,7 @@ import { useTheme } from "@/contexts/theme-context";
 
 const navLinks = [
   { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Connect" },
 ];
 
 export function Navigation() {
