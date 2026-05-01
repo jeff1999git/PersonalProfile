@@ -12,26 +12,17 @@ interface CardProps {
 
 export function Card({ children, className, hover = true }: CardProps) {
   const { theme } = useTheme();
-  
+
   return (
     <motion.div
       className={cn(
-        "rounded-xl border backdrop-blur-sm p-6",
-        theme === 'dark' 
-          ? 'border-zinc-900/50 bg-zinc-900/20' 
-          : 'border-zinc-200/50 bg-zinc-50/50',
+        "rounded-xl border backdrop-blur-sm p-6 transition-colors duration-200",
+        theme === 'dark'
+          ? 'border-zinc-800 bg-zinc-900/40 hover:border-zinc-700 hover:bg-zinc-900/70'
+          : 'border-zinc-200 bg-zinc-50/80 hover:border-zinc-300 hover:bg-white',
         className
       )}
-      whileHover={
-        hover
-          ? {
-              scale: 1.02,
-              borderColor: theme === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
-              backgroundColor: theme === 'dark' ? "rgba(24, 24, 27, 0.5)" : "rgba(248, 250, 252, 0.9)",
-              transition: { duration: 0.2 },
-            }
-          : undefined
-      }
+      whileHover={hover ? { scale: 1.02, transition: { duration: 0.2 } } : undefined}
     >
       {children}
     </motion.div>

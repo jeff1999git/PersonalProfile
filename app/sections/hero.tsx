@@ -150,10 +150,15 @@ export function Hero() {
               }`}>
                 I build systems,{" "}
                 <span className="relative inline-block px-3 py-0.5">
-                  <span className="absolute inset-0 bg-white" style={{ transform: 'skewX(-10deg)' }} />
-                  <span className="relative text-black">products</span>
+                  <span className={`absolute inset-0 ${theme === 'dark' ? 'bg-white' : 'bg-black'}`} style={{ transform: 'skewX(-10deg)' }} />
+                  <span className={`relative ${theme === 'dark' ? 'text-black' : 'text-white'}`}>products</span>
                 </span>
-                , and ideas that turn complexity into clarity.
+                , and ideas that turn{" "}
+                <span className="relative inline-block px-3 py-0.5">
+                  <span className={`absolute inset-0 ${theme === 'dark' ? 'bg-white' : 'bg-black'}`} style={{ transform: 'skewX(-10deg)' }} />
+                  <span className={`relative ${theme === 'dark' ? 'text-black' : 'text-white'}`}>complexity</span>
+                </span>
+                {" "}into clarity.
               </h2>
             </FadeIn>
 
