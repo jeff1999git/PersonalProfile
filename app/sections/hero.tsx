@@ -142,85 +142,35 @@ export function Hero() {
             theme === 'dark' ? 'bg-white/20' : 'bg-black/20'
           }`} />
 
-          {/* Right Content - About Me + Stats */}
+          {/* Right Content - Headline + Bio */}
           <div className="flex flex-col justify-center lg:mt-0 lg:justify-self-end lg:pl-12">
             <FadeIn delay={0.3}>
-              <h2 className={`text-3xl lg:text-4xl font-bold mb-6 ${
+              <h2 className={`text-2xl lg:text-3xl xl:text-4xl font-bold leading-[1.15] mb-6 ${
                 theme === 'dark' ? 'text-white' : 'text-black'
               }`}>
-                About Me
+                I build systems,{" "}
+                <span className="relative inline-block px-3 py-0.5">
+                  <span className="absolute inset-0 bg-white" style={{ transform: 'skewX(-10deg)' }} />
+                  <span className="relative text-black">products</span>
+                </span>
+                , and ideas that turn complexity into clarity.
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <div className={`space-y-4 mb-8 ${
+              <div className={`space-y-4 ${
                 theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'
               }`}>
-                <p className="leading-relaxed">
-                  I&apos;m a passionate full-stack developer with a love for creating elegant,
-                  user-friendly web applications. With expertise in modern technologies 
-                  and frameworks, I transform ideas into powerful digital solutions.
+                <p className="leading-relaxed text-sm lg:text-base">
+                  I&apos;m Jeff Joe — a full-stack developer and builder focused on creating
+                  scalable, real-world applications. I work on transforming ideas into
+                  structured, usable systems that are both efficient and reliable.
                 </p>
-                <p className="leading-relaxed">
-                  My approach combines technical excellence with creative problem-solving, 
-                  ensuring every project I deliver is both functional and beautiful. 
-                  I thrive on challenges and continuously expand my skill set to stay 
-                  at the forefront of web development.
+                <p className="leading-relaxed text-sm lg:text-base">
+                  My work is driven by a focus on simplicity, performance, and impact —
+                  building products that are not just functional, but purposeful and
+                  built to last.
                 </p>
-              </div>
-            </FadeIn>
-
-            {/* Stats Cards */}
-            <FadeIn delay={0.5}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <motion.div
-                  className={`border rounded-lg p-4 text-center ${
-                    theme === 'dark' 
-                      ? 'bg-zinc-900/50 border-zinc-800' 
-                      : 'bg-zinc-100/50 border-zinc-300'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className={`text-2xl font-bold mb-1 ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>5+</div>
-                  <div className={`text-xs uppercase tracking-wide ${
-                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
-                  }`}>Years Experience</div>
-                </motion.div>
-                <motion.div
-                  className={`border rounded-lg p-4 text-center ${
-                    theme === 'dark' 
-                      ? 'bg-zinc-900/50 border-zinc-800' 
-                      : 'bg-zinc-100/50 border-zinc-300'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className={`text-2xl font-bold mb-1 ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>50+</div>
-                  <div className={`text-xs uppercase tracking-wide ${
-                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
-                  }`}>Projects Completed</div>
-                </motion.div>
-                <motion.div
-                  className={`border rounded-lg p-4 text-center ${
-                    theme === 'dark' 
-                      ? 'bg-zinc-900/50 border-zinc-800' 
-                      : 'bg-zinc-100/50 border-zinc-300'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className={`text-2xl font-bold mb-1 ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>20+</div>
-                  <div className={`text-xs uppercase tracking-wide ${
-                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
-                  }`}>Happy Clients</div>
-                </motion.div>
               </div>
             </FadeIn>
           </div>
