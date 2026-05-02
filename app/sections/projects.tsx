@@ -158,7 +158,7 @@ export function Projects() {
     <section
       id="projects"
       className={`py-24 lg:py-32 border-t ${
-        theme === "dark" ? "border-zinc-800/50" : "border-zinc-200/50"
+        theme === "dark" ? "bg-black border-zinc-800/50" : "bg-white border-zinc-200/50"
       }`}
     >
       <Container>
