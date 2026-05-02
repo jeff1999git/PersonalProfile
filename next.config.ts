@@ -1,10 +1,9 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
-  // Turbopack configuration
   turbopack: {
-    // Root directory for monorepo support
-    root: ".",
+    root: path.resolve(__dirname),
   },
 
   // Enable React Strict Mode for better development experience

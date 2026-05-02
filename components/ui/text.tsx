@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/theme-context";
 
 interface HeadingProps {
   children: React.ReactNode;
@@ -22,12 +23,16 @@ export function Heading({
   size = "lg",
   gradient = false,
 }: HeadingProps) {
+  const { theme } = useTheme();
+  
   return (
     <Component
       className={cn(
-        "font-bold tracking-tight text-white",
+        "font-bold tracking-tight",
+        theme === 'dark' ? 'text-white' : 'text-black',
         sizeMap[size],
-        gradient && "bg-gradient-to-r from-white via-white to-zinc-400 bg-clip-text text-transparent",
+        gradient && theme === 'dark' && "bg-gradient-to-r from-white via-white to-zinc-400 bg-clip-text text-transparent",
+        gradient && theme === 'light' && "bg-gradient-to-r from-black via-black to-zinc-600 bg-clip-text text-transparent",
         className
       )}
     >
@@ -49,10 +54,12 @@ export function Text({
   variant = "default",
   size = "md",
 }: TextProps) {
+  const { theme } = useTheme();
+  
   const variants = {
-    default: "text-zinc-300",
-    muted: "text-zinc-400",
-    accent: "text-white",
+    default: theme === 'dark' ? "text-zinc-300" : "text-zinc-700",
+    muted: theme === 'dark' ? "text-zinc-400" : "text-zinc-600",
+    accent: theme === 'dark' ? "text-white" : "text-black",
   };
 
   const sizes = {

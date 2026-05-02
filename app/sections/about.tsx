@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heading, Text } from "@/components/ui/text";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
 import { Code2, Palette, Zap, Globe } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 
 const stats = [
   { value: "5+", label: "Years Experience" },
@@ -37,8 +38,14 @@ const services = [
 ];
 
 export function About() {
+  const { theme } = useTheme();
+
   return (
-    <section id="about" className="py-24 lg:py-32">
+    <section id="about" className={`py-24 lg:py-32 border-t ${
+      theme === 'dark' 
+        ? 'bg-black border-zinc-800/50' 
+        : 'bg-white border-zinc-200/50'
+    }`}>
       <Container>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -64,11 +71,19 @@ export function About() {
             <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
               {stats.map((stat) => (
                 <StaggerItem key={stat.label}>
-                  <div className="text-center p-4 rounded-lg border border-zinc-800 bg-zinc-900/30">
-                    <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                  <div className={`text-center p-4 rounded-lg border ${
+                    theme === 'dark' 
+                      ? 'border-zinc-800 bg-zinc-900/30' 
+                      : 'border-zinc-300 bg-zinc-100/50'
+                  }`}>
+                    <div className={`text-2xl sm:text-3xl font-bold mb-1 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
                       {stat.value}
                     </div>
-                    <div className="text-xs text-zinc-500">{stat.label}</div>
+                    <div className={`text-xs ${
+                      theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'
+                    }`}>{stat.label}</div>
                   </div>
                 </StaggerItem>
               ))}
@@ -78,13 +93,25 @@ export function About() {
           <StaggerContainer className="grid sm:grid-cols-2 gap-4">
             {services.map((service) => (
               <StaggerItem key={service.title}>
-                <Card className="h-full">
-                  <service.icon className="h-8 w-8 text-zinc-400 mb-4" />
+                <Card className={`h-full transition-all duration-200 hover:scale-[1.02] ${
+                  theme === 'dark' 
+                    ? 'hover:bg-zinc-900/40 hover:border-zinc-700' 
+                    : 'hover:bg-zinc-100 hover:border-zinc-300'
+                } ${
+                  theme === 'dark' ? '' : 'bg-zinc-50 border-zinc-200'
+                }`} hover={false}>
+                  <service.icon className={`h-8 w-8 mb-4 ${
+                    theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                  }`} />
                   <CardContent className="p-0">
-                    <h3 className="font-semibold text-white mb-2">
+                    <h3 className={`font-semibold mb-2 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
                       {service.title}
                     </h3>
-                    <p className="text-sm text-zinc-400">
+                    <p className={`text-sm ${
+                      theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
+                    }`}>
                       {service.description}
                     </p>
                   </CardContent>
