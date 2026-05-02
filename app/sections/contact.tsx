@@ -5,27 +5,33 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heading, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
-import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight, Linkedin, Github } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "jeffinmjtcr@gmail.com",
+    href: "mailto:jeffinmjtcr@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 9567110457",
+    href: "tel:+919567110457",
   },
   {
-    icon: MapPin,
-    label: "Location",
-    value: "San Francisco, CA",
-    href: "#",
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "jeffin-jose-v",
+    href: "https://www.linkedin.com/in/jeffin-jose-v-67610a19b/",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "jeff1999git",
+    href: "https://github.com/jeff1999git",
   },
 ];
 
