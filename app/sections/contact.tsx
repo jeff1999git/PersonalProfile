@@ -58,7 +58,7 @@ export function Contact() {
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <Button href="mailto:hello@example.com" size="lg">
+              <Button href="mailto:jeffinmjtcr@gmail.com" size="lg">
                 <Mail className="h-5 w-5 mr-2" />
                 Send Message
               </Button>

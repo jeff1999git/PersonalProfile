@@ -19,20 +19,11 @@ export function Hero() {
           : 'from-zinc-100 via-white to-zinc-50'
       }`} />
 
-      {/* Animated background orbs */}
-      <motion.div
-        className={`absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-3xl ${
+      {/* Animated background orb */}
+      <div
+        className={`absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-3xl animate-orb-pulse ${
           theme === 'dark' ? 'bg-zinc-800/20' : 'bg-zinc-300/20'
         }`}
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.1, 0.15, 0.1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
       />
 
       <Container className="relative z-10 w-full">
@@ -100,7 +91,7 @@ export function Hero() {
             <FadeIn delay={0.7}>
               <div className="flex flex-row gap-4 mt-0.5">
                 <motion.a
-                  href="https://github.com"
+                  href="https://github.com/jeff1999git"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-3 group ${
@@ -112,7 +103,7 @@ export function Hero() {
                   <span className="text-sm">GitHub</span>
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/jeffin-jose-v-67610a19b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-3 group ${
@@ -124,7 +115,7 @@ export function Hero() {
                   <span className="text-sm">LinkedIn</span>
                 </motion.a>
                 <motion.a
-                  href="mailto:hello@example.com"
+                  href="mailto:jeffinmjtcr@gmail.com"
                   className={`flex items-center gap-3 group ${
                     theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'
                   } transition-colors`}
@@ -183,17 +174,15 @@ export function Hero() {
 
         {/* Scroll indicator */}
         <FadeIn delay={1} className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block">
-          <motion.a
-            href="#about"
-            className="text-zinc-600 hover:text-white transition-colors"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+          <a
+            href="#experience"
+            className="text-zinc-600 hover:text-white transition-colors animate-scroll-bounce inline-block"
           >
             <span className="sr-only">Scroll down</span>
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </motion.a>
+          </a>
         </FadeIn>
       </Container>
     </section>
