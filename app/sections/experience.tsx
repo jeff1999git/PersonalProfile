@@ -62,48 +62,46 @@ export function Experience() {
         <StaggerContainer className="flex flex-col gap-12">
           {experiences.map((exp) => (
             <StaggerItem key={exp.role}>
-              <FadeIn>
-                <div
-                  className={`rounded-2xl border p-8 ${
-                    theme === "dark"
-                      ? "border-zinc-800 bg-zinc-900/40"
-                      : "border-zinc-200 bg-zinc-50/60"
-                  }`}
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
-                    <div>
-                      <h3
-                        className={`text-lg font-bold ${
-                          theme === "dark" ? "text-white" : "text-black"
-                        }`}
-                      >
-                        {exp.role}
-                      </h3>
-                      <p className="text-sm text-zinc-500 mt-0.5">
-                        {exp.company} &mdash; {exp.location}
-                      </p>
-                    </div>
-                    <span
-                      className={`text-xs font-medium px-3 py-1 rounded-full shrink-0 self-start ${
-                        theme === "dark"
-                          ? "bg-zinc-800 text-zinc-400"
-                          : "bg-zinc-200 text-zinc-600"
+              <div
+                className={`rounded-2xl border p-8 ${
+                  theme === "dark"
+                    ? "border-zinc-800 bg-zinc-900/40"
+                    : "border-zinc-200 bg-zinc-50/60"
+                }`}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+                  <div>
+                    <h3
+                      className={`text-lg font-bold ${
+                        theme === "dark" ? "text-white" : "text-black"
                       }`}
                     >
-                      {exp.period}
-                    </span>
+                      {exp.role}
+                    </h3>
+                    <p className="text-sm text-zinc-500 mt-0.5">
+                      {exp.company} &mdash; {exp.location}
+                    </p>
                   </div>
-
-                  <ul className="flex flex-col gap-2.5">
-                    {exp.bullets.map((point, i) => (
-                      <li key={i} className="flex gap-3 text-sm text-zinc-500 leading-relaxed">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-zinc-400 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <span
+                    className={`text-xs font-medium px-3 py-1 rounded-full shrink-0 self-start ${
+                      theme === "dark"
+                        ? "bg-zinc-800 text-zinc-400"
+                        : "bg-zinc-200 text-zinc-600"
+                    }`}
+                  >
+                    {exp.period}
+                  </span>
                 </div>
-              </FadeIn>
+
+                <ul className="flex flex-col gap-2.5">
+                  {exp.bullets.map((point, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-zinc-500 leading-relaxed">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-zinc-400 shrink-0" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

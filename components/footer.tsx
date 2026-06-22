@@ -20,9 +20,7 @@ export function Footer() {
           transition={{ duration: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-between gap-4"
         >
-          <p className={`text-sm ${
-            theme === 'dark' ? 'text-zinc-600' : 'text-zinc-600'
-          }`}>
+          <p className="text-sm text-zinc-600">
             © {currentYear} Jeffin Jose V. All rights reserved.
           </p>
         </motion.div>
