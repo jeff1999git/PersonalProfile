@@ -1,6 +1,6 @@
 # Project handbook: Personal Portfolio
 
-> **Last updated:** 2026-10-11 · branch `dev` · commit `d1fd46b`, plus uncommitted work: two changes to the project cards in `app/sections/projects.tsx` (Ulsaham Entertainments and NoWaitr swapped; PinNote added and DD Ammini moved), and this handbook updated to match (see the two newest entries in section 18).
+> **Last updated:** 2026-10-11 · branch `dev` · commit `17149a3`, plus uncommitted work: in `app/sections/projects.tsx`, Royal King Water Supply added, JVS Water Supply moved and the third project group renamed "Small Projects", and this handbook updated to match (see the first entry in section 18).
 >
 > **Secrets policy:** This file holds no secret values and no personal contact data, and it must stay that way. The project currently has no secrets at all (section 6.6). If it ever gets any, they live only in the hosting dashboard and in untracked `.env*` files; this file names the config key and where it lives, never the value. Email addresses, phone numbers and profile links are cited by file and line, never copied. Do not open or paste `.env` files, keystores, private keys, service-account files, or anything under `.next/`.
 >
@@ -95,7 +95,7 @@ Do these after every change to the repository, in the same working session, befo
 | Site title | "Jeffin Jose V \| Full-Stack Developer" (`app/layout.tsx:14`) |
 | Package name and version | `personal-portfolio` `0.1.0` (`package.json:2-3`); the version has never been bumped and there are no git tags |
 | Repository | `https://github.com/jeff1999git/PersonalProfile` (remote `origin`); public or private is **unverified** |
-| Branches | `dev` is the working branch. `main` receives pull requests from `dev` (three merged so far). `origin/main` is at `8a44ca7`; `dev` is three commits ahead of it (see BLK-3) |
+| Branches | `dev` is the working branch. `main` receives pull requests from `dev` (three merged so far). `origin/main` is at `8a44ca7`; `dev` is four commits ahead of it (see BLK-3) |
 | Framework | Next.js 16.2.3, App Router, Turbopack for dev and build |
 | UI | React 19.2.4, TypeScript 5.9.3 (strict), Tailwind CSS 4.2.2 configured in CSS (there is no `tailwind.config` file) |
 | Libraries | framer-motion 12.38.0 (animation), lucide-react 0.487.0 (icons), clsx 2.1.1 and tailwind-merge 3.5.0 (class names) |
@@ -144,7 +144,7 @@ These come from the code, not from the owner. Each one exists because breaking i
 | GR-11 | Make a component theme-aware the way the others do: a client component that calls `useTheme()` and chooses between two complete class strings. Do not use `dark:` utilities. Do not build class names by joining fragments. | `dark:` follows the operating system setting here, not the toggle, because no custom variant is defined. Tailwind only finds class names written out in full (sections 9.1 and 9.7). |
 | GR-12 | Do not reorder, merge or add conditions to the two effects in `contexts/theme-context.tsx:17-36` without testing a first visit and a visit with a stored light theme. | The stored theme survives only because of the order in which the two effects run (section 6.2). The provider was rewritten in four commits. |
 | GR-13 | Do not put colour classes on `<body>` in `app/layout.tsx:35`. | The theme provider adds and removes them at run time; hard-coded ones were removed in `92a8c18`. |
-| GR-14 | In project data, a missing link is the exact string `"#"`. Never use an empty string. | The buttons are hidden only for `"#"` (`app/sections/projects.tsx:143` and `:149`). An empty string renders a dead button. |
+| GR-14 | In project data, a missing link is the exact string `"#"`. Never use an empty string. | The buttons are hidden only for `"#"` (`app/sections/projects.tsx:150` and `:156`). An empty string renders a dead button. |
 | GR-15 | Section anchors are wired by hand in three places: the section `id`, the nav list (`components/navigation.tsx:8-12`) and the hero scroll arrow (`app/sections/hero.tsx:178`). Change them together. | The arrow pointed at a section that no longer existed from `07b2309` until `3520172`. |
 | GR-16 | Contact details are repeated as literals in `app/sections/hero.tsx` and `app/sections/contact.tsx`. Change every copy (section 8.11 lists them). | A partial update shipped once: `5f4ec86` changed some and the rest were fixed in `3520172`. |
 | GR-17 | Upgrade in pairs: `next` with `eslint-config-next`; `react` with `react-dom`; `tailwindcss` with `@tailwindcss/postcss`. Do not move `lucide-react` to 1.x before replacing the brand icons in `app/sections/contact.tsx:8`. | Version coupling and removed exports (section 4.3, TD-7). |
@@ -180,7 +180,7 @@ A one-page portfolio that presents the owner as a full-stack developer: who they
 | Header | Fixed bar with the brand link "Jeff.", three section links (Experience, Projects, Connect) from 768 px wide, and the theme toggle | Section 8.1, 8.2 |
 | Hero | Portrait, name, title, tagline, three contact links (two profiles and email), a headline and a two-paragraph bio | Section 8.3 |
 | Experience | Two roles, each a card with dated bullets | Section 8.5 |
-| Projects | Twelve project cards in three groups: "Professional Work" (4), "Independent Works" (4), "Company Dashboards" (4) | Section 8.6 |
+| Projects | Thirteen project cards in three groups: "Professional Work" (4), "Independent Works" (4), "Small Projects" (5) | Section 8.6 |
 | Contact | A "Send Message" button and four cards showing contact channels | Section 8.7 |
 | Footer | Copyright line with the current year | Section 8.8 |
 
@@ -352,8 +352,8 @@ tsconfig.tsbuildinfo   GENERATED, ignored: TypeScript incremental cache
 | Jobs and bullets | `app/sections/experience.tsx:8-42` |
 | Projects under "Professional Work" | `app/sections/projects.tsx:11-44` (array `professionalProjects`) |
 | Projects under "Independent Works" | `app/sections/projects.tsx:46-75` (array `coreProducts`, TD-3) |
-| Projects under "Company Dashboards" | `app/sections/projects.tsx:77-106` (array `otherProjects`, TD-3) |
-| Group headings; card layout | `app/sections/projects.tsx:182`, `:198`, `:214`; `:108-159` |
+| Projects under "Small Projects" | `app/sections/projects.tsx:77-113` (array `otherProjects`, TD-3) |
+| Group headings; card layout | `app/sections/projects.tsx:189`, `:205`, `:221`; `:115-166` |
 | Contact details | `app/sections/contact.tsx:11-36`, `:61`; email also at `app/sections/hero.tsx:118` (TD-2) |
 | Footer text | `components/footer.tsx:23-25` |
 | Button variants, sizes; card look | `components/ui/button.tsx:33-56`; `components/ui/card.tsx:18-25` |
@@ -436,7 +436,7 @@ The 200 on `/` and the 404 are verified in browser; the 308 is read from the bui
 **In-page anchors.** Navigation is by URL hash only, hand-wired in three places that must change together:
 
 1. The header link list, `components/navigation.tsx:8-12`: `#experience`, `#projects`, `#contact` (the brand link at `:31` is `#`).
-2. The section `id` attributes: `app/sections/experience.tsx:49`, `app/sections/projects.tsx:166`, `app/sections/contact.tsx:42`.
+2. The section `id` attributes: `app/sections/experience.tsx:49`, `app/sections/projects.tsx:173`, `app/sections/contact.tsx:42`.
 3. The hero scroll arrow, `app/sections/hero.tsx:178`: `#experience`.
 
 Scrolling is smoothed by CSS only (`app/globals.css:33`). No scroll margin is set, so a section's top edge lands under the fixed header (a 64 px row plus a 1 px border, `components/navigation.tsx:22,29`); the section's own 96 px top padding keeps its heading visible. Below 768 px the header links are hidden (see BUG-7).
@@ -582,8 +582,8 @@ Image optimizer parameters. Each broken rule returns HTTP 400 with the message a
 
 "Unused `href`" means the field exists in the `contactInfo` array (`app/sections/contact.tsx:11-36`) but no code renders it. The browser contacts no external host on page load. Project links, with their line in `app/sections/projects.tsx`:
 
-- Live sites: `https://solddd.com/` (17), `https://easyvacayplanner.com/` (25), `https://www.auntie-app.com/` (33), `https://www.ulsaaham.com/` (51), `https://bookngo-one.vercel.app/` (58), `https://jv-swatersupply-web.vercel.app/` (65), `https://flavory-nu.vercel.app/` (89), `https://seffer-exports.vercel.app/` (96), `https://dd-aminni.vercel.app/` (103).
-- Repositories, all in the GitHub account that hosts this repository (the account URL is the literal at `app/sections/hero.tsx:94`): `ulsaaham.com` (52), `Bookngo` (59), `JVSwatersupply` (66), `NoWaitr` (83), `Flavory` (90), `SefferExports` (97), `DDAminni` (104).
+- Live sites: `https://solddd.com/` (17), `https://easyvacayplanner.com/` (25), `https://www.auntie-app.com/` (33), `https://www.ulsaaham.com/` (51), `https://bookngo-one.vercel.app/` (58), `https://flavory-nu.vercel.app/` (89), `https://seffer-exports.vercel.app/` (96), `https://dd-aminni.vercel.app/` (103), `https://jv-swatersupply-web.vercel.app/` (110).
+- Repositories, all in the GitHub account that hosts this repository (the account URL is the literal at `app/sections/hero.tsx:94`): `ulsaaham.com` (52), `Bookngo` (59), `NoWaitr` (83), `Flavory` (90), `SefferExports` (97), `DDAminni` (104), `JVSwatersupply` (111).
 - In the data, `"#"` means "no link" and hides the button (`:136,142`).
 
 ### 7.4 What a visitor's browser requests on first load
@@ -592,9 +592,9 @@ Production build, measured 2026-10-11 (verified in browser). Every request goes 
 
 | Type | Count | Bytes transferred |
 |---|---|---|
-| HTML document | 1 | 10,385 |
+| HTML document | 1 | 10,573 |
 | Stylesheet | 1 | 7,388 |
-| JavaScript (async) | 8 | 211,232 (see TD-15) |
+| JavaScript (async) | 8 | 211,411 (see TD-15) |
 | Font: Inter, Latin subset, preloaded | 1 | 48,732 |
 | Portrait through `/_next/image` | 1 | 13,921 on desktop; 24,853 on a phone at 2x |
 | Favicon | 1 | not measured |
@@ -729,29 +729,29 @@ The site is one page: header, Hero, Theme separator, Experience, Projects, Conta
 
 ### 8.6 Projects
 
-**Files**: `app/sections/projects.tsx:1-229`: three data arrays (`:11-106`); the file-private component `ProjectCard` (`:108-159`); the exported `Projects` (`:161-229`); mounted at `app/page.tsx:13`.
+**Files**: `app/sections/projects.tsx:1-236`: three data arrays (`:11-113`); the file-private component `ProjectCard` (`:115-166`); the exported `Projects` (`:168-236`); mounted at `app/page.tsx:13`.
 
 **Behaviour**
-- `<section id="projects">` (`:166`): a small label "Portfolio" (`:175`), the `h2` "Work & Projects" (`:177`), then three groups, each an `h3`, a caption and a grid of cards.
-- `ProjectCard` draws the title, a company label when the entry has a `company` (`:121`), the description, tag pills (`:128-141`) and a button row (`:142-155`). "Live URL" opens `liveUrl` and "Code" opens `repoUrl`, both in a new tab.
-- Breakpoints: one column below 768 px, two columns from 768 px (`:187`, `:203`, `:219`).
-- Themes: themed, except the label, captions and company label, which are fixed `text-zinc-500` (`:174`, `:184`, `:200`, `:216`, `:122`).
+- `<section id="projects">` (`:173`): a small label "Portfolio" (`:182`), the `h2` "Work & Projects" (`:184`), then three groups, each an `h3`, a caption and a grid of cards.
+- `ProjectCard` draws the title, a company label when the entry has a `company` (`:128`), the description, tag pills (`:135-148`) and a button row (`:149-162`). "Live URL" opens `liveUrl` and "Code" opens `repoUrl`, both in a new tab.
+- Breakpoints: one column below 768 px, two columns from 768 px (`:194`, `:210`, `:226`).
+- Themes: themed, except the label, captions and company label, which are fixed `text-zinc-500` (`:181`, `:191`, `:207`, `:223`, `:129`).
 
-The three groups. Choose an array by its visible heading: the variable names lag the headings (TD-3), and the code comments at `:195` and `:211` still read "Core Products" and "Other Projects".
+The three groups. Choose an array by its visible heading: the variable names lag the headings (TD-3), and the code comments at `:202` and `:218` still read "Core Products" and "Other Projects".
 
 | Variable (lines) | Visible heading | Caption | `showRepo` |
 |---|---|---|---|
-| `professionalProjects` (`:11-44`) | Professional Work (`:182`) | Client & company projects (`:184`) | `false` (`:190`) |
-| `coreProducts` (`:46-75`) | Independent Works (`:198`) | Independent products & apps (`:200`) | default `true` (`:206`) |
-| `otherProjects` (`:77-106`) | Company Dashboards (`:214`) | Dashboards & landing Pages (`:216`) | default `true` (`:222`) |
+| `professionalProjects` (`:11-44`) | Professional Work (`:189`) | Client & company projects (`:191`) | `false` (`:197`) |
+| `coreProducts` (`:46-75`) | Independent Works (`:205`) | Independent products & apps (`:207`) | default `true` (`:213`) |
+| `otherProjects` (`:77-113`) | Small Projects (`:221`) | Dashboards & landing Pages (`:223`) | default `true` (`:229`) |
 
 The `"#"` sentinel (a placeholder value with a special meaning) and the `showRepo` flag:
 
 - The one-character string `"#"` in `liveUrl` or `repoUrl` means "no such link".
-- It is filtered in exactly two places, both in `ProjectCard`: `:143` (`project.liveUrl !== "#"`) hides "Live URL", and `:149` (`showRepo && project.repoUrl !== "#"`) hides "Code".
-- `showRepo` is a `ProjectCard` prop, default `true` (`:110`). Only the Professional Work grid passes `false` (`:190`), so "Code" never shows there, whatever `repoUrl` holds.
+- It is filtered in exactly two places, both in `ProjectCard`: `:150` (`project.liveUrl !== "#"`) hides "Live URL", and `:156` (`showRepo && project.repoUrl !== "#"`) hides "Code".
+- `showRepo` is a `ProjectCard` prop, default `true` (`:117`). Only the Professional Work grid passes `false` (`:197`), so "Code" never shows there, whatever `repoUrl` holds.
 
-Project inventory on the working tree of 2026-10-11, after the changes recorded in the two newest entries of section 18: 12 cards, 9 "Live URL" buttons, 7 "Code" buttons. Every URL in the table returned HTTP 200 when requested on 2026-10-11.
+Project inventory on the working tree of 2026-10-11, after the changes recorded in the three newest entries of section 18: 13 cards, 9 "Live URL" buttons, 7 "Code" buttons. Every URL in the table returned HTTP 200 when requested on 2026-10-11.
 
 | Group | Title (line) | Company | Tags | Live URL | Repository URL |
 |---|---|---|---|---|---|
@@ -761,27 +761,29 @@ Project inventory on the working tree of 2026-10-11, after the changes recorded 
 | Professional Work | EVENT APP (`:37`) | Logix Space Technologies Pvt Ltd | Flutter, Node.js, SQL, Express | `"#"` | `"#"` |
 | Independent Works | Ulsaham Entertainments (`:48`) | none | Astro, React, Next.js, TypeScript, MongoDB, Razorpay, Vercel | `https://www.ulsaaham.com/` | `https://github.com/jeff1999git/ulsaaham.com` |
 | Independent Works | BookNGo (`:55`) | none | React, Node.js, PostgreSQL | `https://bookngo-one.vercel.app/` | `https://github.com/jeff1999git/Bookngo` |
-| Independent Works | JVS Water Supply (`:62`) | none | TailwindCSS, Turborepo, MongoDB | `https://jv-swatersupply-web.vercel.app/` | `https://github.com/jeff1999git/JVSwatersupply` |
+| Independent Works | Royal King Water Supply (`:62`) | none | Next.js, React, TypeScript, MongoDB, NextAuth, TanStack Query, Cloudinary, PWA, Turborepo | `"#"` | `"#"` |
 | Independent Works | PinNote (`:69`) | none | Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Drizzle ORM, Auth.js, Nodemailer, Vitest, Playwright, Vercel | `"#"` | `"#"` |
-| Company Dashboards | NoWaitr (`:79`) | none | ImageKit, QRCode.react, Resend API | `"#"` | `https://github.com/jeff1999git/NoWaitr` |
-| Company Dashboards | Flavory (`:86`) | none | React Native, Firebase | `https://flavory-nu.vercel.app/` | `https://github.com/jeff1999git/Flavory` |
-| Company Dashboards | Seffer Exports (`:93`) | none | Next.js, Tailwind CSS | `https://seffer-exports.vercel.app/` | `https://github.com/jeff1999git/SefferExports` |
-| Company Dashboards | DD Ammini (`:100`) | none | Next.js, Node.js, Vercel | `https://dd-aminni.vercel.app/` | `https://github.com/jeff1999git/DDAminni` |
+| Small Projects | NoWaitr (`:79`) | none | ImageKit, QRCode.react, Resend API | `"#"` | `https://github.com/jeff1999git/NoWaitr` |
+| Small Projects | Flavory (`:86`) | none | React Native, Firebase | `https://flavory-nu.vercel.app/` | `https://github.com/jeff1999git/Flavory` |
+| Small Projects | Seffer Exports (`:93`) | none | Next.js, Tailwind CSS | `https://seffer-exports.vercel.app/` | `https://github.com/jeff1999git/SefferExports` |
+| Small Projects | DD Ammini (`:100`) | none | Next.js, Node.js, Vercel | `https://dd-aminni.vercel.app/` | `https://github.com/jeff1999git/DDAminni` |
+| Small Projects | JVS Water Supply (`:107`) | none | TailwindCSS, Turborepo, MongoDB | `https://jv-swatersupply-web.vercel.app/` | `https://github.com/jeff1999git/JVSwatersupply` |
 
 - Spellings are recorded as written and must not be "corrected". SOLDDD has three D's on the owner's instruction of 2026-10-11 (it read SOOLDD before commit `a8e9168`). Some titles differ from their own URLs (DD Ammini, BookNGo, JVS Water Supply), and tag spellings vary between cards (`React.js` and `React`, `TailwindCSS` and `Tailwind CSS`).
 - The owner set the tags of the first three cards in commit `50ac264`.
-- The Ulsaham Entertainments card was written on 2026-10-11 from text the owner supplied: the title, the seven tags and a description condensed from the owner's own. It took the place of NoWaitr at the top of "Independent Works", and NoWaitr moved, unchanged, to the top of "Company Dashboards". The title has one "a" after the "s"; the domain and repository are spelled `ulsaaham` (section 9.9).
-- The PinNote card was added on 2026-10-11 from text the owner supplied, in the place DD Ammini held; DD Ammini moved, unchanged, to the end of "Company Dashboards". The description is condensed from the owner's text and the tags are the owner's stack list without version numbers. No live URL or repository link was supplied, so both fields are `"#"` and the card shows no buttons (CNT-13).
+- The Ulsaham Entertainments card was written on 2026-10-11 from text the owner supplied: the title, the seven tags and a description condensed from the owner's own. It took the place of NoWaitr at the top of "Independent Works", and NoWaitr moved, unchanged, to the top of the third group (then headed "Company Dashboards"). The title has one "a" after the "s"; the domain and repository are spelled `ulsaaham` (section 9.9).
+- The PinNote card was added on 2026-10-11 from text the owner supplied, in the place DD Ammini held; DD Ammini moved, unchanged, to the end of the third group (then headed "Company Dashboards"). The description is condensed from the owner's text and the tags are the owner's stack list without version numbers. No live URL or repository link was supplied, so both fields are `"#"` and the card shows no buttons (CNT-13).
+- The Royal King Water Supply card was added on 2026-10-11 from text the owner supplied, in the place JVS Water Supply held; JVS Water Supply moved, unchanged, to the end of the third group. The owner renamed that group "Small Projects" (`:221`) in the same request; the caption under the heading still reads "Dashboards & landing Pages" (`:223`, CNT-5). The description is condensed from the owner's text, the tags are the owner's stack list without version numbers, and no link was supplied, so the card shows no buttons (CNT-14).
 
 **Rules**
-- Both URL fields are required strings (`:112`). Write exactly `"#"` for "none": an empty string is not filtered and yields a `<button>` that goes nowhere, because `Button` picks `<a>` or `<button>` by whether `href` is truthy (`components/ui/button.tsx:58`).
-- `title` is the React key within its group (`:189`, `:205`, `:221`) and each tag is the key within its card (`:131`). No duplicates.
-- Keep `rel="noopener noreferrer"` beside `target="_blank"` (`:144`, `:150`); `Button` does not add it (SEC-7).
+- Both URL fields are required strings (`:119`). Write exactly `"#"` for "none": an empty string is not filtered and yields a `<button>` that goes nowhere, because `Button` picks `<a>` or `<button>` by whether `href` is truthy (`components/ui/button.tsx:58`).
+- `title` is the React key within its group (`:196`, `:212`, `:228`) and each tag is the key within its card (`:138`). No duplicates.
+- Keep `rel="noopener noreferrer"` beside `target="_blank"` (`:151`, `:157`); `Button` does not add it (SEC-7).
 
 **Gotchas**
-- EVENT APP and PinNote show no buttons, and NoWaitr shows only "Code" (CNT-6, CNT-13).
-- At 320 px wide the EVENT APP company label sticks 11 px out of its card, because it is `shrink-0` (`:122`); at 360 px it fits (BUG-11, verified in browser).
-- CNT-2, CNT-3 and CNT-8 (tags against the Experience text), CNT-4 (the DD Ammini spelling), CNT-5 (the "Company Dashboards" heading).
+- EVENT APP, PinNote and Royal King Water Supply show no buttons, and NoWaitr shows only "Code" (CNT-6, CNT-13, CNT-14).
+- At 320 px wide the EVENT APP company label sticks 11 px out of its card, because it is `shrink-0` (`:129`); at 360 px it fits (BUG-11, verified in browser).
+- CNT-2, CNT-3 and CNT-8 (tags against the Experience text), CNT-4 (the DD Ammini spelling), CNT-5 (the caption under "Small Projects").
 
 ### 8.7 Contact
 
@@ -871,7 +873,7 @@ Why the cards are not links:
 | always | circle pulses on a 12 s loop; scroll arrow bounces on a 2 s loop | `globals.css:75-91` |
 
 - Below 1024 px the hero's right column is under the left one, so any part of it below the first screen animates when scrolled to.
-- Measured start of the hero heading, counted from the start of loading (verified in browser): 686 to 1,147 ms on desktop, 3,383 to 3,963 ms on an emulated slow phone (section 16).
+- Measured start of the hero heading, counted from the start of loading (verified in browser): 629 to 1,147 ms on desktop, 3,383 to 4,790 ms on an emulated slow phone (section 16).
 
 **Rules**
 - Each wrapper adds a real `div`; section 9 says where layout classes then go.
@@ -887,10 +889,10 @@ After any edit below, check both themes at 320, 768 and 1440 px wide, and update
 
 #### Add a project
 
-1. In `app/sections/projects.tsx:11-106`, pick the array by visible heading and append `{ title, description, tags: [...], liveUrl, repoUrl }`, with `company` only in `professionalProjects`. Follow the Rules in section 8.6.
-2. In Professional Work a repository link never shows (`projects.tsx:190`), and a long `company` label can overflow at 320 px (BUG-11).
+1. In `app/sections/projects.tsx:11-113`, pick the array by visible heading and append `{ title, description, tags: [...], liveUrl, repoUrl }`, with `company` only in `professionalProjects`. Follow the Rules in section 8.6.
+2. In Professional Work a repository link never shows (`projects.tsx:197`), and a long `company` label can overflow at 320 px (BUG-11).
 3. If an Experience bullet names the project (`app/sections/experience.tsx:17,20,22`), keep the name and stack consistent.
-4. A new group needs a new array and a copy of a heading block and grid (`projects.tsx:196-209`). Every grid but the last keeps `mb-20`.
+4. A new group needs a new array and a copy of a heading block and grid (`projects.tsx:203-216`). Every grid but the last keeps `mb-20`.
 
 There are no images, shared types or tests to update.
 
@@ -1009,7 +1011,7 @@ Rule for global CSS from now on:
 5. No `dark:` variants and no token utilities such as `bg-background` (sections 9.1, 9.4). On a heading, `<p>`, link or button, check section 9.2.
 6. For entrance motion wrap it in `FadeIn` or `StaggerItem` (section 9.6). Check both themes with the header toggle, then run the checks in section 16.
 
-Illustrative example (`Badge` is not in the repository), modelled on `card.tsx:13-30` with the tag-pill colours of `projects.tsx:134-135`:
+Illustrative example (`Badge` is not in the repository), modelled on `card.tsx:13-30` with the tag-pill colours of `projects.tsx:141-142`:
 
 ```tsx
 "use client";
@@ -1047,7 +1049,7 @@ The palette is black, white and Tailwind's `zinc` greys; there is no brand hue. 
 | Heading | `text-white` | `text-black` | `text.tsx:34` |
 | Body text | `text-zinc-300` | `text-zinc-700` | `text.tsx:62` |
 | Muted text | `text-zinc-400` | `text-zinc-600` | `text.tsx:63` |
-| Muted text, not themed | `text-zinc-500` | same (TD-18, BUG-15) | `experience.tsx:98`, `projects.tsx:122` |
+| Muted text, not themed | `text-zinc-500` | same (TD-18, BUG-15) | `experience.tsx:98`, `projects.tsx:129` |
 | Primary button | `bg-white text-black` | `bg-black text-white` | `button.tsx:36-37` |
 | Focus ring | 2px solid `#ffffff` | same (BUG-4) | `globals.css:11,63-66` |
 | Selection | white on `rgba(255, 255, 255, 0.15)` | same (BUG-4) | `globals.css:46-49` |
@@ -1064,7 +1066,7 @@ Breakpoints actually used are Tailwind's defaults (`node_modules/tailwindcss/ind
 | Breakpoint | What changes |
 |---|---|
 | `sm` 640 px | Gutter 32 px; portrait 160x210 to 200x260 (`hero.tsx:46`); experience card header becomes a row (`experience.tsx:72`); headings step up |
-| `md` 768 px | Nav links appear (`navigation.tsx:41`; none below, BUG-7); project grids go to two columns (`projects.tsx:187`); section headings step up again (`text.tsx:16`) |
+| `md` 768 px | Nav links appear (`navigation.tsx:41`; none below, BUG-7); project grids go to two columns (`projects.tsx:194`); section headings step up again (`text.tsx:16`) |
 | `lg` 1024 px | Gutter 48 px; sections `py-32`; hero becomes three columns with its vertical rule and scroll arrow (`hero.tsx:30,132,176`); hero headings step up (`hero.tsx:64,139`); contact goes to two columns (`contact.tsx:48`) |
 | `xl` 1280 px | Only the hero `h2` grows (`hero.tsx:139`) |
 
@@ -1076,14 +1078,14 @@ Unless stated, each takes `children: React.ReactNode` and `className?: string` (
 |---|---|
 | Props | `variant?: "primary" \| "secondary" \| "outline" \| "ghost"` = `"primary"`; `size?: "sm" \| "md" \| "lg"` = `"md"`; `href?`, `target?`, `rel?: string`; `onClick?: () => void` |
 | Renders | `motion.a` if `href` is truthy, else `motion.button` (`:58`), themed per variant (`:33-50`) |
-| Used at | `projects.tsx:144,150`, `contact.tsx:61`; always a link |
+| Used at | `projects.tsx:151,157`, `contact.tsx:61`; always a link |
 | Limits | Forwards no other prop, so no `type`, `disabled` or `aria-*` (TD-13); `rel` is not enforced (SEC-7); never `next/link` |
 
 | `Card` and its parts | `card.tsx` |
 |---|---|
 | Props | `Card`: `hover?: boolean` = `true`. The parts add none |
 | Renders | `Card`: themed `motion.div`, `rounded-xl border p-6` (`:19-22`). `CardHeader`: `div`. `CardTitle`: `h3`. `CardDescription`: muted `p`. `CardContent`: `div`, no padding |
-| Used at | `projects.tsx:117-157` (all five exports), `contact.tsx:71-102` (`Card` and `CardContent`) |
+| Used at | `projects.tsx:124-164` (all five exports), `contact.tsx:71-102` (`Card` and `CardContent`) |
 | Limits | Always a `div`; cannot be a link (TD-13). `hover={false}` removes the scale only, not the CSS hover colours |
 
 | `Container` | `container.tsx` |
@@ -1097,7 +1099,7 @@ Unless stated, each takes `children: React.ReactNode` and `className?: string` (
 |---|---|
 | Props | `as?: "h1"`-`"h6"` = `"h2"`; `size?: "xl" \| "lg" \| "md" \| "sm"` = `"lg"`; `gradient?: boolean` = `false` |
 | Renders | Chosen tag with `font-bold tracking-tight`, the heading colour and `sizeMap[size]` (`:14-19`) |
-| Used at | `experience.tsx:59`, `projects.tsx:177`, `contact.tsx:51`, defaults only; the hero uses raw `h1` and `h2` |
+| Used at | `experience.tsx:59`, `projects.tsx:184`, `contact.tsx:51`, defaults only; the hero uses raw `h1` and `h2` |
 | Limits | `font-bold` is ignored (section 9.2); `as`, the other sizes and `gradient` were never exercised |
 
 | `Text` | `text.tsx` |
@@ -1118,7 +1120,7 @@ Unless stated, each takes `children: React.ReactNode` and `className?: string` (
 |---|---|
 | Props | `staggerDelay?: number` = `0.1` (seconds) |
 | Renders | `motion.div` with `initial="hidden"`, `whileInView="visible"`, `viewport={{ once: true }}` (`:68-70`) |
-| Used at | `experience.tsx:62`, `projects.tsx:187,203,219`, `contact.tsx:68` |
+| Used at | `experience.tsx:62`, `projects.tsx:194,210,226`, `contact.tsx:68` |
 | Limits | Fires as a whole when its first pixel is visible, so items low in a tall list animate unseen |
 
 | `StaggerItem` | `fade-in.tsx` |
@@ -1155,7 +1157,7 @@ Unless stated, each takes `children: React.ReactNode` and `className?: string` (
 **The wrapper-div consequence.** `FadeIn`, `StaggerContainer` and `StaggerItem` each render a real `div` around their children.
 
 - Layout classes (margin, grid, absolute positioning) go on the wrapper through `className`, not on the child (`experience.tsx:55`, `hero.tsx:176`).
-- The wrapper, not your element, is the flex or grid child. Content that must fill its cell needs `h-full` (`projects.tsx:117`).
+- The wrapper, not your element, is the flex or grid child. Content that must fill its cell needs `h-full` (`projects.tsx:124`).
 - Tailwind's `translate` and `scale` utilities are safe on a wrapper: Tailwind 4 emits separate `translate` and `scale` properties, while Framer writes an inline `transform` (`hero.tsx:176`).
 - A `StaggerItem` outside a `StaggerContainer` does not animate; it has no `initial` of its own.
 
@@ -1179,7 +1181,7 @@ Unless stated, each takes `children: React.ReactNode` and `className?: string` (
 | `"use client"` | Line 1, double quotes, semicolon, in the 13 files that use a hook or `motion`; absent from `layout.tsx`, `app/page.tsx`, `container.tsx`, `lib/utils.ts` | `footer.tsx:1` |
 | Import alias | `@/` is the repository root (`tsconfig.json:21-23`); the only relative import is the stylesheet (`layout.tsx:3`) | `contact.tsx:3-9` |
 | `className` | Primitives: `cn(base, theme, size, className)`. Sections and chrome: template literal with a ternary | `button.tsx:66`; `navigation.tsx:22-26` |
-| Content data | Untyped module-level `const` arrays at the top of the section file; hero copy is inline JSX; no CMS, JSON or environment variable | `experience.tsx:8-42`, `projects.tsx:11-106` |
+| Content data | Untyped module-level `const` arrays at the top of the section file; hero copy is inline JSX; no CMS, JSON or environment variable | `experience.tsx:8-42`, `projects.tsx:11-113` |
 | Icons | Named imports from `lucide-react`, kept as component references in data, rendered as `<item.icon />`, sized `h-5 w-5` (`h-4 w-4` in card buttons); hero brand icons are inline `<svg>`, Contact imports lucide's deprecated ones (TD-7) | `contact.tsx:8,13,83`; `hero.tsx:102` |
 | Quoting | Double quotes, semicolons, two-space indent; the theme literal is single-quoted in most files, double-quoted in two; no formatter (TD-14) | `card.tsx:20` against `experience.tsx:51` |
 | Comments | Sparse: 11 JSX region labels, 4 CSS comments, one `eslint-disable`; no JSDoc | `hero.tsx:15`, `globals.css:51` |
@@ -1193,12 +1195,12 @@ Every row carries the same rule: do not "fix" it without the owner. The last col
 | `SOLDDD` | `projects.tsx:13`, `experience.tsx:17` | Three D's | Brand spelling given by the owner; matches `https://solddd.com/` |
 | `NewagesysIT` | `experience.tsx:11`, `projects.tsx:16,24,32` | One word, capital `IT` | Employer name as the owner writes it |
 | `DD Ammini` | `projects.tsx:100` | Live URL has `dd-aminni` (`:103`), repository `DDAminni` (`:104`) | Both links work; the right spelling is CNT-4 |
-| `JVS Water Supply` | `projects.tsx:62` | Live URL `jv-swatersupply-web` (`:65`), repository `JVSwatersupply` (`:66`) | Real deployment and repository names; editing them breaks the links |
+| `JVS Water Supply` | `projects.tsx:107` | Live URL `jv-swatersupply-web` (`:110`), repository `JVSwatersupply` (`:111`) | Real deployment and repository names; editing them breaks the links |
 | `BookNGo`, `NoWaitr`, `Flavory` | `projects.tsx:55,79,86` | Unusual capitals and spellings; repository `Bookngo` (`:59`) | Product names |
 | `Ulsaham Entertainments` | `projects.tsx:48` | The title has one "a" after the "s", while its domain and repository are spelled `ulsaaham` (`:51-52`) | Both spellings are the owner's, given together on 2026-10-11; the title read "Ulsaaham" before that |
 | Bio name and header brand text | `hero.tsx:161`, `navigation.tsx:38` | Short forms that differ from the site title (`layout.tsx:14`) | Owner's wording; CNT-1 |
-| `coreProducts` | `projects.tsx:46,204` | Renders under "Independent Works" (`:198`); its comment says "Core Products" (`:195`) | TD-3. Choose an array by its visible heading |
-| `otherProjects` | `projects.tsx:77,220` | Renders under "Company Dashboards" (`:214`) | TD-3; the heading itself is CNT-5 |
+| `coreProducts` | `projects.tsx:46,211` | Renders under "Independent Works" (`:205`); its comment says "Core Products" (`:202`) | TD-3. Choose an array by its visible heading |
+| `otherProjects` | `projects.tsx:77,227` | Renders under "Small Projects" (`:221`) | TD-3; its caption is CNT-5 |
 | Nav label "Connect" | `navigation.tsx:11` | Its target id is `contact` (`contact.tsx:42`) | Owner's wording; the `href` and the `id` must stay equal |
 | Link text "Gmail" | `hero.tsx:125` | A `mailto:` link; the Contact card says "Email" (`contact.tsx:14`) | Owner's wording |
 | `bg-gradient-to-br`, `bg-gradient-to-r` | `hero.tsx:16`, `text.tsx:36-37` | Tailwind 3 names; version 4 prefers `bg-linear-to-*` | Legacy aliases that 4.2.2 still compiles; a rename is cosmetic and needs a check in both themes |
@@ -1211,7 +1213,7 @@ Conventions followed:
 
 - Structure: `<html lang="en">` (`layout.tsx:31`); landmarks `header` with `nav`, `main` and `footer` (`navigation.tsx:18,29`, `layout.tsx:39`, `footer.tsx:12`); one `h1` (`hero.tsx:64`), an `h2` per section, `h3` for group and card titles.
 - Names: the icon-only button has `aria-label="Toggle theme"` (`navigation.tsx:68`) and the icon-only link has screen-reader text (`hero.tsx:181`). Decorative inline SVGs beside visible text carry `aria-hidden="true"` (`hero.tsx:102,114`); the portrait has `alt` (`hero.tsx:52`).
-- Links that open a new tab carry `rel="noopener noreferrer"` (`hero.tsx:95-96`, `projects.tsx:144,150`). One global `:focus-visible` outline covers every control (`globals.css:63-66`); no component removes it.
+- Links that open a new tab carry `rel="noopener noreferrer"` (`hero.tsx:95-96`, `projects.tsx:151,157`). One global `:focus-visible` outline covers every control (`globals.css:63-66`); no component removes it.
 
 Gaps, by open-item ID (details in section 15):
 
@@ -1480,8 +1482,8 @@ All **unverified**; none of it can be read from the repo.
 
 Most urgent, in order:
 
-1. BLK-3: three commits are unreleased, so `origin/main` still shows the old product name and a staging link.
-2. BUG-1: the page is blank until JavaScript runs: 3.4 to 4.0 seconds on the phone profile, permanently with JavaScript off.
+1. BLK-3: four commits are unreleased, so `origin/main` still shows the old product name and a staging link.
+2. BUG-1: the page is blank until JavaScript runs: 3.4 to 4.8 seconds on the phone profile, permanently with JavaScript off.
 3. BUG-2, BUG-6: the phone number cannot be tapped and the contact cards are not links; a browser that blocks storage gets an error screen. Both are one-file fixes.
 4. BLK-1, BLK-2, SEC-1, SEC-2, SEC-6: one clean-up change repairs linting and takes `personal-portfolio/` (20.7 MB) and `dev.log` out of git. It deletes tracked files, so it waits for the owner's go-ahead.
 5. BUG-3, BUG-4, BUG-5: the light theme is half-applied (black footer band, invisible focus ring, dark flash on every load).
@@ -1492,7 +1494,7 @@ Secret scan (2026-10-11): no real secret in the tracked files or in git history.
 
 | ID | Priority | Issue | Where | Evidence | Suggested fix |
 |---|---|---|---|---|---|
-| BLK-3 | P1 | Unreleased work: `dev` is 3 commits ahead of `origin/main` (`a8e9168`, `50ac264`, `d1fd46b`), which still has the old SOOLDD name and staging URL and none of the docs | `app/sections/projects.tsx:13-17`; `app/sections/experience.tsx:17` | verified in code: `git rev-list --left-right --count origin/main...dev` prints `3 3` (the first 3 are pull-request merge commits that add no content). Deployed branch **unverified** (UNV-1) | Merge a pull request from `dev` to `main` (section 12) |
+| BLK-3 | P1 | Unreleased work: `dev` is 4 commits ahead of `origin/main` (`a8e9168`, `50ac264`, `d1fd46b`, `17149a3`), which still has the old SOOLDD name and staging URL and none of the docs | `app/sections/projects.tsx:13-17`; `app/sections/experience.tsx:17` | verified in code: `git rev-list --left-right --count origin/main...dev` prints `3 4` (the first 3 are pull-request merge commits that add no content). Deployed branch **unverified** (UNV-1) | Merge a pull request from `dev` to `main` (section 12) |
 | BLK-1 | P1 | `npm run lint` fails: `next lint` was removed in Next 16. The build does not lint either | `package.json:9` | verified in code; output "Invalid project directory provided, no such directory: ...\lint" | Set the script to `eslint app components contexts lib` |
 | BLK-2 | P1 | Whole-repo lint fails: `eslint .` lints 12 stale build chunks, because `.next/**` ignores the root folder only | `eslint.config.mjs:11` | verified in code; output 209 errors and 3,057 warnings, all in those chunks; the 20 real source and config files have none | Fix SEC-2, or ignore `"**/.next/**"` |
 
@@ -1518,7 +1520,7 @@ Secret scan (2026-10-11): no real secret in the tracked files or in git history.
 
 | ID | Priority | Issue | Where | Evidence | Suggested fix |
 |---|---|---|---|---|---|
-| BUG-1 | P1 | All content is server-rendered at `opacity:0` and appears only after JavaScript hydrates (takes over the server HTML) | `components/ui/fade-in.tsx:33-36`, `:95`; `components/navigation.tsx:19` | verified in browser: 35 elements with inline `opacity:0`; hero heading at 3,383-3,963 ms on the phone profile; black screen with JavaScript off | Render visible by default; add motion as an enhancement |
+| BUG-1 | P1 | All content is server-rendered at `opacity:0` and appears only after JavaScript hydrates (takes over the server HTML) | `components/ui/fade-in.tsx:33-36`, `:95`; `components/navigation.tsx:19` | verified in browser: 35 elements with inline `opacity:0`; hero heading at 3,383-4,790 ms on the phone profile; black screen with JavaScript off | Render visible by default; add motion as an enhancement |
 | BUG-2 | P1 | Contact cards are not links although they show an arrow; the phone number is not tappable anywhere | `app/sections/contact.tsx:69-104`; unused `href` at `:16`, `:22`, `:28`, `:34` | verified in browser: one anchor in the section, no `tel:` link on the page | Wrap each card in an anchor with `item.href` |
 | BUG-6 | P1 | Unguarded `localStorage` access takes the whole page down when storage is blocked | `contexts/theme-context.tsx:18`, `:26` | verified in browser: page replaced by "This page couldn't load" | `try`/`catch` around both calls |
 | BUG-3 | P2 | Light theme: `body` stays black because the unlayered `body` rule beats the utility classes the theme provider adds; the footer shows as a black band | `app/globals.css:38-44`; `contexts/theme-context.tsx:33`; `components/footer.tsx:12-14` | verified in browser: computed background `rgb(0,0,0)` despite `bg-white text-black` | Drive the two CSS variables from the theme |
@@ -1527,10 +1529,10 @@ Secret scan (2026-10-11): no real secret in the tracked files or in git history.
 | BUG-7 | P2 | No section navigation below 768 px | `components/navigation.tsx:41` | verified in browser: only the brand and the toggle remain | Add a compact menu |
 | BUG-9 | P2 | Unlayered `h1`-`h6`, `p` and `a, button` rules override Tailwind utilities on those elements (`font-bold` on a heading renders at weight 600) | `app/globals.css:52-56`, `:58-60`, `:69-73` | verified in code (same mechanism as BUG-3) | Wrap them in `@layer base`; re-check typography |
 | BUG-14 | P2 | `prefers-reduced-motion` is ignored everywhere | `components/ui/fade-in.tsx:32-51`; `app/globals.css:33`, `:85-91` | verified in code: no `MotionConfig`, and the library default is "never" | `MotionConfig` with `reducedMotion="user"`, plus a CSS media query |
-| BUG-15 | P2 | Contrast below WCAG AA (4.5:1) for muted text and footer text in dark theme | `app/sections/experience.tsx:56`, `:98`; `app/sections/projects.tsx:122`; `components/footer.tsx:23` | verified in browser: 4.10:1 on cards, 4.35:1 on black, footer 2.72:1 | `text-zinc-400` in dark theme (TD-18) |
+| BUG-15 | P2 | Contrast below WCAG AA (4.5:1) for muted text and footer text in dark theme | `app/sections/experience.tsx:56`, `:98`; `app/sections/projects.tsx:129`; `components/footer.tsx:23` | verified in browser: 4.10:1 on cards, 4.35:1 on black, footer 2.72:1 | `text-zinc-400` in dark theme (TD-18) |
 | BUG-8 | P3 | The stored theme value is not validated | `contexts/theme-context.tsx:18-20` | verified in browser: a stored `system` renders light and is kept | Accept only `dark` or `light` |
 | BUG-10 | P3 | The 404 page is the framework default; the header's hash links (such as `#projects`) go nowhere on it | no `app/not-found.tsx`; `components/navigation.tsx:9-11` | verified in browser: links resolve to `/nope#projects`. With the operating system in light mode the default page is white while the header keeps the dark theme, so the header turns grey and its links are barely visible | Add `app/not-found.tsx` linking to `/` |
-| BUG-11 | P3 | At 320 px the EVENT APP company label overflows its card | `app/sections/projects.tsx:122` | verified in browser: 11 px out at 320 px, fits at 360 px | Let the label wrap |
+| BUG-11 | P3 | At 320 px the EVENT APP company label overflows its card | `app/sections/projects.tsx:129` | verified in browser: 11 px out at 320 px, fits at 360 px | Let the label wrap |
 | BUG-12 | P3 | The hero scroll arrow is not themed and turns white on hover in light theme | `app/sections/hero.tsx:179` | verified in code | Theme it like the hero links |
 | BUG-13 | P3 | The footer year is computed at render in a client component whose HTML is fixed at build time: hydration mismatch after a year boundary until the next build | `components/footer.tsx:9` | verified in code; visible effect **unverified** | Rebuild each January, or set the year in an effect |
 | BUG-16 | P3 | `themeColor` is fixed to black, so mobile browser chrome ignores the light theme | `app/layout.tsx:21` | verified in code | Accept, or update it from the theme effect |
@@ -1547,7 +1549,7 @@ Do not change these without being asked: the code cannot say which side is right
 | CNT-8 | P2 | EASY VACAY is tagged "React.js" in Projects (after `50ac264`) but listed under the React Native role | `app/sections/projects.tsx:23`; `app/sections/experience.tsx:20` | verified in code | Owner confirms |
 | CNT-1 | P2 | The bio says "Jeff Joe" beside the headline name | `app/sections/hero.tsx:161` | verified in code | Owner confirms it is intended |
 | CNT-3 | P2 | EVENT APP is tagged SQL while the same internship lists MongoDB | `app/sections/projects.tsx:39`; `app/sections/experience.tsx:32` | verified in code | Owner confirms the database |
-| CNT-5 | P2 | The heading "Company Dashboards" sits over four projects, none of which is a dashboard | `app/sections/projects.tsx:214`, `:77-106` | verified in code | Owner renames the group |
+| CNT-5 | P2 | The third group was renamed "Small Projects" on 2026-10-11, but its caption still reads "Dashboards & landing Pages", and none of its five projects is a dashboard | `app/sections/projects.tsx:223`, `:77-113` | verified in browser | Owner rewords the caption |
 | CNT-6 | P3 | NoWaitr says "Built and deployed" but has no live link; EVENT APP renders with no buttons at all | `app/sections/projects.tsx:80-82`, `:41-42` | verified in code | Owner adds links or rewords |
 | CNT-4 | P3 | The title "DD Ammini" versus "Aminni" in its live URL and repository name | `app/sections/projects.tsx:100`, `:103-104` | verified in code; both links returned 200 | Owner confirms the title |
 | CNT-7 | P3 | The unmounted About section holds template statistics that contradict the Experience timeline | `app/sections/about.tsx:10-15` | verified in code | Rewrite before any re-mount (TD-1) |
@@ -1556,6 +1558,7 @@ Do not change these without being asked: the code cannot say which side is right
 | CNT-11 | P3 | Site title and hero say "Full-Stack Developer"; the current job title is "React Native Mobile App Developer" | `app/layout.tsx:14`; `app/sections/experience.tsx:10` | verified in code | Owner confirms |
 | CNT-12 | P3 | The favicon looks like the framework's template icon | `app/favicon.ico` | **unverified** (judged from its file size; not viewed) | Owner supplies an icon if wanted |
 | CNT-13 | P3 | The PinNote card has no live URL and no repository link, so it shows no buttons; none came with its text | `app/sections/projects.tsx:72-73` | verified in browser | Owner supplies a link, or accepts |
+| CNT-14 | P3 | The Royal King Water Supply card has no live URL and no repository link, so it shows no buttons; none came with its text | `app/sections/projects.tsx:65-66` | verified in browser | Owner supplies a link, or accepts |
 
 ### 15.5 Tech debt
 
@@ -1564,12 +1567,12 @@ Do not change these without being asked: the code cannot say which side is right
 | TD-5 | P2 | `engines.node` is `>=20.0.0` but the installed Next and ESLint require `>=20.9.0` | `package.json:13` | verified in code (`engines` in `node_modules/next/package.json`) | Set `>=20.9.0` |
 | TD-11 | P2 | Local `main` is 22 commits behind `origin/main` (still the template site); merge commits are never pulled back into `dev` | git refs | verified in code: `git rev-list --left-right --count main...origin/main` prints `0 22` | `git pull --ff-only` on `main`; never force-push it |
 | TD-8 | P2 | Version never bumped, no tags, no CI (continuous integration), no automated tests; nothing identifies the deployed commit | `package.json:3` | verified in code | Tag releases; add a CI job for the section 16.2 checks |
-| TD-15 | P2 | JavaScript payload is about 211 KB transferred for one static page, against the owner's "ultra-light" preference | client bundle | verified in browser: 8 files, 211,232 bytes transferred | Fix BUG-1 in CSS, then reconsider the animation library |
+| TD-15 | P2 | JavaScript payload is about 211 KB transferred for one static page, against the owner's "ultra-light" preference | client bundle | verified in browser: 8 files, 211,411 bytes transferred | Fix BUG-1 in CSS, then reconsider the animation library |
 | TD-2 | P2 | Contact details and profile URLs are duplicated literals across `hero.tsx` and `contact.tsx`; no shared constants file | `app/sections/hero.tsx:94`, `:106`, `:118`; `app/sections/contact.tsx:15-34`, `:61` | verified in code | One constants module |
 | TD-7 | P2 | lucide brand icons `Github` and `Linkedin` are deprecated and removed in lucide 1.0 | `app/sections/contact.tsx:8` | verified in code (`node_modules/lucide-react/dist/lucide-react.d.ts:9180`) | Inline SVGs, as `app/sections/hero.tsx:102` does, before any lucide upgrade |
 | TD-12 | P2 | No `metadataBase`, Open Graph, Twitter card, robots, sitemap or manifest | `app/layout.tsx:13-16` | verified in code; look of link previews **unverified** | Add once the live URL is known (UNV-1) |
 | TD-1 | P3 | `app/sections/about.tsx` is dead code: imported nowhere, yet type-checked and linted | `app/sections/about.tsx:40`; `app/page.tsx:1-5` | verified in code | Delete, or rewrite and mount (CNT-7) |
-| TD-3 | P3 | Identifiers lag the UI: `coreProducts` renders as "Independent Works", `otherProjects` as "Company Dashboards" | `app/sections/projects.tsx:46`, `:198`; `:77`, `:214` | verified in code | Rename with CNT-5 |
+| TD-3 | P3 | Identifiers lag the UI: `coreProducts` renders as "Independent Works", `otherProjects` as "Small Projects" | `app/sections/projects.tsx:46`, `:205`; `:77`, `:221` | verified in code | Rename with CNT-5 |
 | TD-4 | P3 | Five unused template SVGs in `public/` are publicly served | `public/next.svg` and four more | verified in code (no reference in source) | Delete |
 | TD-6 | P3 | `priority` on `next/image` is deprecated in Next 16 in favour of `preload` | `app/sections/hero.tsx:56` | verified in code | Rename the prop; never pass both |
 | TD-9 | P3 | The CSS variables and `@theme` tokens are dark-only and unused by components; the `dark` class on `<html>` is inert | `app/globals.css:5-13`, `:15-24`; `contexts/theme-context.tsx:28` | verified in code | Decide with BUG-3: make theme-aware or delete |
@@ -1578,10 +1581,10 @@ Do not change these without being asked: the code cannot say which side is right
 | TD-14 | P3 | No formatter configured; quote style of the theme literal differs between files | `app/sections/experience.tsx:51`; `components/ui/card.tsx:20` | verified in code | Add a formatter, or leave |
 | TD-16 | P3 | The production build needs outbound HTTPS to Google Fonts; an offline or firewalled build fails | `app/layout.tsx:2`, `:8-11` | verified in code (font loader); not run offline (UNV-11) | `next/font/local` if builds must work offline |
 | TD-17 | P3 | `allowedDevOrigins` is not set, so opening the dev server by loopback IP or LAN address loses hot reload (live updates on save) | `next.config.ts:3-18` | verified in code; warnings at `dev.log:220`, `:231`. Whether hydration also breaks: **unverified** | Browse `localhost`, or add the key |
-| TD-18 | P3 | Theme-blind colours remain: muted `text-zinc-500` in Experience and Projects, footer text | `app/sections/experience.tsx:56`, `:81`, `:98`; `app/sections/projects.tsx:122`, `:174`, `:184`, `:200`, `:216`; `components/footer.tsx:23` | verified in code | Theme them with the usual ternary |
+| TD-18 | P3 | Theme-blind colours remain: muted `text-zinc-500` in Experience and Projects, footer text | `app/sections/experience.tsx:56`, `:81`, `:98`; `app/sections/projects.tsx:129`, `:181`, `:191`, `:207`, `:223`; `components/footer.tsx:23` | verified in code | Theme them with the usual ternary |
 | TD-19 | P3 | `framer-motion` is the legacy package name; the library is now `motion`, imported from `motion/react` | `package.json:17`; six import sites | verified in code (`node_modules/framer-motion/README.md:50`) | Migrate only with BUG-1 work |
-| TD-20 | P3 | The "no link" marker is the exact string `"#"`; an empty string is not filtered and renders a dead button | `app/sections/projects.tsx:143`, `:149` | verified in code (latent) | Filter empty strings too |
-| TD-21 | P3 | React keys are content strings (role, title, tag, label, href); a duplicate makes React warn and can duplicate or drop list items | `app/sections/experience.tsx:64`; `app/sections/projects.tsx:131`, `:189` | verified in code (latent) | Keep the values unique |
+| TD-20 | P3 | The "no link" marker is the exact string `"#"`; an empty string is not filtered and renders a dead button | `app/sections/projects.tsx:150`, `:156` | verified in code (latent) | Filter empty strings too |
+| TD-21 | P3 | React keys are content strings (role, title, tag, label, href); a duplicate makes React warn and can duplicate or drop list items | `app/sections/experience.tsx:64`; `app/sections/projects.tsx:138`, `:196` | verified in code (latent) | Keep the values unique |
 | TD-22 | P3 | No `scroll-margin`: anchors clear the fixed header only through each section's top padding; the hero height hard-codes the header height | `components/navigation.tsx:29`; `app/sections/hero.tsx:30` | verified in code; current anchors verified in browser | `scroll-mt-16` on new sections |
 
 ### 15.6 Unverified
@@ -1596,7 +1599,7 @@ Open questions. The last column says how to settle each.
 | UNV-4 | P2 | Behaviour in Safari and Firefox | whole site | **unverified** | Run section 16.3 in both |
 | UNV-2 | P2 | Whether the `vercel.json` headers are applied as written and what the `amp` rule does on the host | `vercel.json:8-39` | **unverified** | Read the live response headers, with and without `?amp=1` |
 | UNV-5 | P2 | Ownership and settings of the hosting and image-CDN accounts | `app/sections/hero.tsx:51` | **unverified** | Owner records them in section 13 |
-| UNV-7 | P2 | Accuracy of the CV content (stacks, dates, claims) | `app/sections/experience.tsx:8-42`; `app/sections/projects.tsx:11-106` | **unverified** | Only the owner can confirm |
+| UNV-7 | P2 | Accuracy of the CV content (stacks, dates, claims) | `app/sections/experience.tsx:8-42`; `app/sections/projects.tsx:11-113` | **unverified** | Only the owner can confirm |
 | UNV-8 | P3 | Whether a pull request from `dev` to `main` is open; the default branch; branch protection | GitHub | **unverified** | Look on GitHub |
 | UNV-9 | P3 | How the host serves `/_next/image` (optimizer, caching, quota); whether analytics or environment variables are set in its dashboard | hosting dashboard | **unverified** | Owner checks |
 | UNV-10 | P3 | Whether `npx tsc --noEmit` passes on a fresh clone, before `next-env.d.ts` exists | `.gitignore:41` | **unverified** | Try a clean clone; if it fails, run `npx next typegen` first |
@@ -1634,9 +1637,9 @@ Measured on 2026-10-11 at `50ac264` unless a row says otherwise (Windows 11, Nod
 | Build | `npm run build` | exit 0; Turbopack; routes `/` and `/_not-found`, both static; type-check runs, lint does not |
 | Runtime health | load `/` and an unknown path, dev and production | 200 and 404; 0 console errors, 0 page errors, 0 failed requests; ids `experience`, `projects`, `contact`; 21 headings; 25 links; no sideways overflow at 1440, 390, 360, 320 px |
 | Outbound links | request all 19 URLs | 18 returned 200; the social profile host returned its bot-block code 999 (not a dead link) |
-| Page weight | production build, bytes transferred | HTML 10,385 (59,541 raw); JavaScript 8 files, 211,232 (707,837 uncompressed); CSS 1 file, 7,388; font 1 file, 48,732; portrait 13,921 on desktop, 24,853 at 2x on a phone viewport. Re-measured after the PinNote card was added on 2026-10-11; at `50ac264` the figures were HTML 9,948 (57,077 raw), JavaScript 210,915 (707,089) and CSS 7,394 |
-| Time to visible content, desktop | production, no throttling, 4 runs | HTML parsed 34-202 ms; hero heading starts to appear 686-1,147 ms; LCP 1,152-1,564 ms |
-| Time to visible content, phone profile | production, "Slow 4G", 4x CPU slowdown, 390x844, 4 runs | HTML parsed 520-550 ms; hero heading starts to appear 3,383-3,963 ms; LCP 3,972-4,556 ms |
+| Page weight | production build, bytes transferred | HTML 10,573 (61,198 raw); JavaScript 8 files, 211,411 (708,316 uncompressed); CSS 1 file, 7,388; font 1 file, 48,732; portrait 13,921 on desktop, 24,853 at 2x on a phone viewport. Re-measured after the Royal King Water Supply card was added on 2026-10-11; at `50ac264` the figures were HTML 9,948 (57,077 raw), JavaScript 210,915 (707,089) and CSS 7,394 |
+| Time to visible content, desktop | production, no throttling, 5 runs | HTML parsed 34-202 ms; hero heading starts to appear 629-1,147 ms; LCP 1,116-1,564 ms |
+| Time to visible content, phone profile | production, "Slow 4G", 4x CPU slowdown, 390x844, 5 runs | HTML parsed 520-577 ms; hero heading starts to appear 3,383-4,790 ms; LCP 3,972-5,400 ms |
 | CSS size | production build, uncompressed | 35,184 bytes before the docs exclusion (RES-3), 35,132 after. Without the exclusion and with this handbook present it would be 36,555 |
 
 - LCP (Largest Contentful Paint) is the moment the largest visible element is painted. The gap between "HTML parsed" and "hero heading" is the wait for JavaScript (BUG-1). The machine was busy, hence the ranges.
@@ -1649,13 +1652,13 @@ About ten minutes. Use the dev server already running at `http://localhost:3000`
 
 1. Load `/` at desktop width. Expect the header to slide in and the portrait, name and headline to fade in within a second or two; 0 console errors.
 2. Click "Experience", "Projects", "Connect", then the brand. Expect each section top at the top of the window with its heading visible below the header; the brand returns to the top.
-3. Scroll slowly to the footer. Expect every block to fade in once, and 12 project cards with 9 "Live URL" and 7 "Code" buttons. Known: EVENT APP and PinNote have no buttons, NoWaitr only "Code" (CNT-6, CNT-13).
+3. Scroll slowly to the footer. Expect every block to fade in once, and 13 project cards with 9 "Live URL" and 7 "Code" buttons. Known: EVENT APP, PinNote and Royal King Water Supply have no buttons, NoWaitr only "Code" (CNT-6, CNT-13, CNT-14).
 4. Click one "Live URL", one "Code", and the hero "GitHub" and "LinkedIn": each opens a new tab. "Gmail" and "Send Message" open the mail program. Known failure: the four contact cards do nothing; the phone number cannot be tapped (BUG-2).
 5. Click the theme toggle, top right (moon while dark, sun while light). Expect every section to turn light; reload and expect light again. Known failures: black footer band (BUG-3); dark flash on reload (BUG-5); hero scroll arrow white on hover (BUG-12).
 6. Press Tab from the top. Expect focus on brand, header links, toggle, hero links, with a white outline in dark theme. Known failure: in light theme the outline and selected text are invisible (BUG-4).
 7. In the DevTools device toolbar choose 390 px wide, then 320 px. Expect one column and no sideways scroll. Known failures: header shows only brand and toggle (BUG-7); at 320 px the EVENT APP company label sticks 11 px out (BUG-11).
 8. Open `/nope`. Expect status 404 and "This page could not be found." between the site header and footer. Known failure: the header links go nowhere (BUG-10).
-9. Optional: throttle to "Slow 4G" with 4x CPU slowdown and reload. Known failure: empty hero for about 3.5 to 4 seconds (BUG-1).
+9. Optional: throttle to "Slow 4G" with 4x CPU slowdown and reload. Known failure: empty hero for about 3.5 to 5 seconds (BUG-1).
 
 Any other difference is a new finding: add it to section 15 under the next free ID.
 
@@ -1719,8 +1722,8 @@ Screenshot gotchas:
 
 ## 17. History, branches and versioning
 
-- Source: git at `d1fd46b`, read on 2026-10-11 (`git log --all`, `git show --stat` and every diff). There are 26 commits across all refs (a ref is a named pointer to a commit, such as a branch or `origin/main`), no tags and no stashes.
-- 23 ordinary commits form one straight line, the history of `dev`. The other 3 are merge commits (two parents each) found only on `origin/main`.
+- Source: git at `17149a3`, read on 2026-10-11 (`git log --all`, `git show --stat` and every diff). There are 27 commits across all refs (a ref is a named pointer to a commit, such as a branch or `origin/main`), no tags and no stashes.
+- 24 ordinary commits form one straight line, the history of `dev`. The other 3 are merge commits (two parents each) found only on `origin/main`.
 - Only the merges have a message body. Elsewhere the diff is the only record of what changed, and nothing records why.
 - IDs such as GR-5 are the golden rules of section 2. IDs such as BLK-3, SEC-1 or TD-8 are the open items of section 15.
 
@@ -1728,7 +1731,7 @@ Screenshot gotchas:
 
 | Ref | At | Role |
 |---|---|---|
-| `dev`, `origin/dev` | `d1fd46b` | Working branch: every ordinary commit is made here. No unpushed commits |
+| `dev`, `origin/dev` | `17149a3` | Working branch: every ordinary commit is made here. No unpushed commits |
 | `origin/main` | `8a44ca7` | Release branch; only pull-request merges from `dev` |
 | `main` (local) | `df63611` | Stale: still the first commit |
 
@@ -1749,9 +1752,9 @@ There are no feature or release branches.
 
 #### What "ahead" and "behind" mean here
 
-`git rev-list --left-right --count origin/main...dev` prints `3 3`: `dev` is 3 commits ahead of `origin/main` and 3 behind. That GitHub displays the same two numbers is **unverified**.
+`git rev-list --left-right --count origin/main...dev` prints `3 4`: `dev` is 4 commits ahead of `origin/main` and 3 behind. That GitHub displays the same two numbers is **unverified**.
 
-- The 3 ahead are unreleased work: `a8e9168`, `50ac264` and `d1fd46b` (BLK-3).
+- The 4 ahead are unreleased work: `a8e9168`, `50ac264`, `d1fd46b` and `17149a3` (BLK-3).
 - The 3 behind are the merge commits. They hold nothing `dev` lacks (the common ancestor `3520172` has the same files as `8a44ca7`); they count only because `main` is never merged back into `dev`.
 - Do not rebase `dev` to clear the count. A rebase gives commits new hashes and `dev` is already pushed, so it would need a force-push, all to change a number that has no effect.
 
@@ -1781,7 +1784,7 @@ If the owner starts versioning, these are the places:
 
 ### 17.3 Timeline
 
-All 26 commits, oldest first.
+All 27 commits, oldest first.
 
 - Times are as recorded: rows 14 to 18 and 20 are in UTC, the rest at +05:30. 07:54 UTC is 13:24 at +05:30, so row 20 follows row 19.
 - `<account>` stands for the GitHub account name in the repository URL.
@@ -1815,6 +1818,7 @@ All 26 commits, oldest first.
 | 24 | `a8e9168` | 2026-10-11 13:13 | fix: correct spelling of "SOLDDD" in experience and projects sections; update live URL accordingly | SOOLDD renamed SOLDDD; live URL moved from a staging host to `https://solddd.com/`. **Misleading:** a rebrand, not a typo fix (GR-1) |
 | 25 | `50ac264` | 2026-10-11 13:22 | fix: update project descriptions and tags for SOLDDD and EASY VACAY; enhance clarity and accuracy | SOLDDD description, tags and experience bullet; EASY VACAY tag. Not in the subject: AUNTIE tag changed |
 | 26 | `d1fd46b` | 2026-10-11 15:19 | Refactor code structure for improved readability and maintainability | Adds `project_context.md`, `AGENTS.md` and `CLAUDE.md`; corrects `README.md` and `THEME_GUIDE.md`; adds the docs exclusion at `app/globals.css:2-3`. **Misleading:** no code was refactored |
+| 27 | `17149a3` | 2026-10-11 15:37 | Refactor code structure for improved readability and maintainability | Ulsaham Entertainments and NoWaitr cards swapped; PinNote card added and DD Ammini moved; handbook updated to match. **Misleading:** the same subject as row 26, and again nothing was refactored |
 
 - Nine subjects are "updates", one is "updated" and one is "fdd". Read the diff, not the subject.
 - Only `a8e9168` and `50ac264` use a `fix:` prefix. Nothing enforces a convention.
@@ -1833,7 +1837,7 @@ All 26 commits, oldest first.
 | 7. Animation and config | 2026-06-22, after a 51-day gap | `3520172`, pull request 3 | CSS keyframes, links fixed, config trimmed |
 | 8. Rebrand | 2026-10-11, after a 111-day gap | `a8e9168`, `50ac264` | SOLDDD, production URL, tags; unreleased (BLK-3) |
 | 9. Handbook | 2026-10-11 | `d1fd46b` | Handbook, agent instructions, docs corrections, docs exclusion; unreleased (BLK-3) |
-| 10. Project cards | 2026-10-11 | uncommitted | The two newest entries of section 18 |
+| 10. Project cards | 2026-10-11 | `17149a3`, then uncommitted | The three newest entries of section 18; unreleased (BLK-3) |
 
 ### 17.5 Things tried and then removed or reverted
 
@@ -1874,24 +1878,30 @@ Everything accidental arrived in the first commit, `df63611`. Nothing was added 
 - On disk, `personal-portfolio/` holds only those tracked files: no source and no `package.json`.
 - One stale build file changed again in `3520172`, so run `git status` before staging (GR-19).
 - The build errors in `dev.log` about missing icon exports came from the nested copy and do not apply to the current source (section 2.4).
-- Not done as of 2026-10-11: removal was proposed and waits for the owner (GR-8). `git rm --cached` only stops future commits from carrying the files. They are in the first commit, so removing them from history means rewriting every commit (26 as of `d1fd46b`) and force-pushing both branches.
+- Not done as of 2026-10-11: removal was proposed and waits for the owner (GR-8). `git rm --cached` only stops future commits from carrying the files. They are in the first commit, so removing them from history means rewriting every commit (27 as of `17149a3`) and force-pushing both branches.
 - No secret was ever committed: see the secret scan at the top of section 15.
 
 ## 18. Changelog
 
 Newest first, in the shape of the template in section 0.3. Entries dated before 2026-10-11 were reconstructed from git on 2026-10-11 and point to rows of section 17.3 instead of repeating them. "Not recorded" means that neither the commit message nor the diff states it.
 
-### 2026-10-11 · dev · PinNote card added; DD Ammini moved to "Company Dashboards" (uncommitted)
+### 2026-10-11 · dev · Royal King Water Supply card added; JVS Water Supply moved; third group renamed "Small Projects" (uncommitted)
+- **What:** In `app/sections/projects.tsx`, a new Royal King Water Supply card (`:61-67`) takes the third place in "Independent Works"; JVS Water Supply moves, text unchanged, to the end of the third group (`:106-112`); and that group's heading changes from "Company Dashboards" to "Small Projects" (`:221`). There are now 13 cards: 4, 4 and 5. The file grew from 229 to 236 lines, so every citation to it from line 106 on was shifted by 7 throughout this handbook. Sections 1, 3.2, 5.2, 7.3, 7.4, 8.6, 8.10, 9.9, 15, 16.2, 16.3, 17 and 19 were updated, CNT-14 was opened, CNT-5 was reworded, and commit `17149a3` was recorded.
+- **Why:** The owner asked for all three changes on 2026-10-11 and supplied the Royal King description and stack. The card description is condensed from the owner's text; the tags are the owner's stack list without version numbers. The year in the supplied title line was not used, because cards carry no dates.
+- **Verified:** Type-check, source lint and production build pass. Verified in browser on the running dev server at 1440 px in both themes and at 390 and 320 px: the groups list their cards in the new order under the new heading, there are 9 "Live URL" and 7 "Code" buttons, the new card does not overflow, and there are 0 console errors. Page weight was re-measured on a production build (section 16.2).
+- **Follow-ups:** Owner to review the card wording and commit. Royal King Water Supply has no link (CNT-14). The caption under "Small Projects" still reads "Dashboards & landing Pages" (CNT-5). Unreleased (BLK-3).
+
+### 2026-10-11 · dev · PinNote card added; DD Ammini moved to "Company Dashboards" (`17149a3`)
 - **What:** In `app/sections/projects.tsx`, a new PinNote card (`:68-74`) takes the fourth place in "Independent Works", and DD Ammini moves, text unchanged, to the end of "Company Dashboards" (`:99-105`). There are now 12 cards, four per group. The file grew from 222 to 229 lines, so every citation to it from line 99 on was shifted by 7 throughout this handbook. Sections 3.2, 7.3, 7.4, 8.6, 8.10, 9.9, 15.4, 16.2, 16.3 and 17.4 were updated, and CNT-13 was opened.
 - **Why:** The owner asked for both moves on 2026-10-11 and supplied PinNote's description and stack. The card description is condensed from the owner's text; the tags are the owner's stack list without version numbers. The role and date placeholders in the supplied text were not used, because cards carry neither.
 - **Verified:** Type-check, source lint and production build pass. Verified in browser on the running dev server at 1440 px in both themes and at 390 and 320 px: the groups list their cards in the new order, there are 9 "Live URL" and 7 "Code" buttons, the PinNote card does not overflow, and there are 0 console errors. Page weight was re-measured on a production build (section 16.2).
-- **Follow-ups:** Owner to review the card wording and commit. PinNote has no link (CNT-13). Unreleased (BLK-3). "Company Dashboards" now sits over four projects that are not dashboards (CNT-5).
+- **Follow-ups:** Committed by the owner in `17149a3`. PinNote has no link (CNT-13). Unreleased (BLK-3). "Company Dashboards" now sits over four projects that are not dashboards (CNT-5).
 
-### 2026-10-11 · dev · Ulsaham Entertainments and NoWaitr cards swapped; Ulsaham card rewritten (uncommitted)
+### 2026-10-11 · dev · Ulsaham Entertainments and NoWaitr cards swapped; Ulsaham card rewritten (`17149a3`)
 - **What:** In `app/sections/projects.tsx`, the first card of "Independent Works" is now Ulsaham Entertainments (`:47-53`) and the first card of "Company Dashboards" is NoWaitr (`:78-84`, text unchanged). The Ulsaham card has a new title (it read "Ulsaaham"), a new description, seven tags in place of two, and the `www` form of its live URL. This handbook was updated to match in sections 1, 7.3, 7.4, 8.6, 8.10, 9.9, 15, 16.2 and 17, and the statements that called commit `d1fd46b` uncommitted were corrected.
 - **Why:** The owner asked for the swap on 2026-10-11 and supplied the project's name, stack and a long description. The card description is a condensed version of the owner's text; the tags are the owner's stack list in full.
 - **Verified:** Type-check, source lint and production build pass. Verified in browser on the production build at 1440 px in both themes and at 390 and 320 px: both groups list their cards in the new order, there are still 9 "Live URL" and 7 "Code" buttons, the new card does not overflow, and there are 0 console errors. `https://www.ulsaaham.com/` returned HTTP 200. Page weight was re-measured (section 16.2).
-- **Follow-ups:** Owner to review the card wording and commit. Unreleased (BLK-3). "Company Dashboards" still sits over projects that are not dashboards (CNT-5).
+- **Follow-ups:** Committed by the owner in `17149a3`. Unreleased (BLK-3). "Company Dashboards" still sits over projects that are not dashboards (CNT-5).
 
 ### 2026-10-11 · dev · Project handbook, agent instructions and docs exclusion (`d1fd46b`)
 - **What:** Added `project_context.md` (this handbook), `AGENTS.md` and `CLAUDE.md`. Added `@source not "../*.md"` with a comment to `app/globals.css` (lines 2-3). Corrected stale statements in `README.md` and `THEME_GUIDE.md`.
@@ -1947,29 +1957,29 @@ What each term means in this repository. Names in quotes are text a visitor sees
 
 | Term | Meaning here | See |
 |---|---|---|
-| `"#"` sentinel | The exact string for "no link" in project data; buttons hide only for it (`projects.tsx:143`, `:149`) | 8.6, GR-14 |
+| `"#"` sentinel | The exact string for "no link" in project data; buttons hide only for it (`projects.tsx:150`, `:156`) | 8.6, GR-14 |
 | App Router | Next's routing, in which folders under `app/` are routes. Here: one page, `/` (`app/layout.tsx`, `app/page.tsx`), plus the built-in not-found route | 6.3 |
 | AUNTIE | Nanny-booking app from the owner's current job (`projects.tsx:29`) | 8.6 |
 | Cascade layer | A CSS `@layer`. Tailwind 4 puts utility classes in the last of its four (`node_modules/tailwindcss/index.css:1`) | 9.2 |
 | Client component | A file starting with `"use client"`: rendered on the server for the HTML and again in the browser. 13 files here | 5.3 |
 | `cn` helper | `lib/utils.ts:4-6`: joins class names; a later conflicting class wins | 9.5 |
-| "Code" | Button to a project's repository (`projects.tsx:152`); never shown in "Professional Work" (`:190`) | 8.6 |
-| "Company Dashboards" | Third project group (`projects.tsx:214`); array `otherProjects` | 8.6, TD-3, CNT-5 |
+| "Code" | Button to a project's repository (`projects.tsx:159`); never shown in "Professional Work" (`:197`) | 8.6 |
 | EASY VACAY | Travel-booking platform from the owner's current job (`projects.tsx:21`) | 8.6, CNT-8 |
 | EVENT APP | Internship project card (`projects.tsx:37`); no links, so no buttons | 8.6, CNT-6 |
 | Flat config | ESLint 9's single-file config (`eslint.config.mjs`); its ignore patterns are relative to that file's folder, so `.next/**` (`:11`) does not cover a nested `.next/` | 11.2, BLK-2 |
 | FOUC, or theme flash | "Flash of unstyled content". Here: a visitor with a stored light theme sees the dark page first | 9.1, BUG-5 |
 | Hydration | React attaching to the server-made HTML in the browser. Until then the content is invisible and the stored theme is not applied | 6.2, BUG-1 |
 | Image optimizer | Next's endpoint `/_next/image`, which fetches and resizes the portrait (`app/sections/hero.tsx:50-57`); it needs a running Next server or a host that provides the same endpoint | 7.2, 10.4 |
-| "Independent Works" | Second project group (`projects.tsx:198`); array `coreProducts` | 8.6, TD-3 |
+| "Independent Works" | Second project group (`projects.tsx:205`); array `coreProducts` | 8.6, TD-3 |
 | LCP | Largest Contentful Paint, when the largest visible element is painted: 1.2 to 1.6 s on desktop, 4.0 to 4.6 s on an emulated slow phone | 16.2 |
-| "Live URL" | Button to a project's public site (`projects.tsx:146`), from the `liveUrl` field | 8.6 |
+| "Live URL" | Button to a project's public site (`projects.tsx:153`), from the `liveUrl` field | 8.6 |
 | Logix Space Technologies Pvt Ltd | Employer during the owner's internship; no punctuation (`experience.tsx:28`) | 8.5 |
 | NewagesysIT | The owner's current employer; one word, capital "IT" (`experience.tsx:11`) | 8.5 |
 | Prerender | Rendering a route to static HTML at build time. Both routes are prerendered, so a value computed while rendering is frozen until the next build | 6.1, BUG-13 |
-| "Professional Work" | First project group (`projects.tsx:182`); array `professionalProjects` | 8.6 |
+| "Professional Work" | First project group (`projects.tsx:189`); array `professionalProjects` | 8.6 |
 | `remotePatterns` | The hosts the image optimizer may fetch from (`next.config.ts:8-13`); one is listed | 6.6, SEC-4 |
 | Server component | A file without `"use client"` that no client component imports; rendered at build time only (`app/layout.tsx`, `app/page.tsx`) | 5.3 |
+| "Small Projects" | Third project group (`projects.tsx:221`); array `otherProjects`. Headed "Company Dashboards" until 2026-10-11 | 8.6, TD-3, CNT-5 |
 | SOLDDD | Real-estate product from the owner's current job; three D's, capitals (`projects.tsx:13`). Formerly SOOLDD | GR-1 |
 | Source exclusion | `@source not "../*.md";` at `app/globals.css:3`: keeps root Markdown out of Tailwind's search for class names | 9.7 |
 | Stagger | Children appearing 0.1 s apart when their `StaggerContainer` scrolls into view (`components/ui/fade-in.tsx:61-83`) | 9.6, 8.10 |

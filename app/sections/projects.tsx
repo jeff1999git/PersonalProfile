@@ -59,11 +59,11 @@ const coreProducts = [
     repoUrl: "https://github.com/jeff1999git/Bookngo",
   },
   {
-    title: "JVS Water Supply",
-    description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
-    tags: ["TailwindCSS", "Turborepo", "MongoDB"],
-    liveUrl: "https://jv-swatersupply-web.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
+    title: "Royal King Water Supply",
+    description: "Full-stack web app that replaced paper registers for a drinking-water delivery business. Drivers log deliveries, expenses and odometer readings from their phones in an installable PWA, while the owner manages the ledger, customers, fleet and stock from an admin portal with analytics and ledger exports.",
+    tags: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "TanStack Query", "Cloudinary", "PWA", "Turborepo"],
+    liveUrl: "#",
+    repoUrl: "#",
   },
   {
     title: "PinNote",
@@ -102,6 +102,13 @@ const otherProjects = [
     tags: ["Next.js", "Node.js", "Vercel"],
     liveUrl: "https://dd-aminni.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/DDAminni",
+  },
+  {
+    title: "JVS Water Supply",
+    description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
+    tags: ["TailwindCSS", "Turborepo", "MongoDB"],
+    liveUrl: "https://jv-swatersupply-web.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
   },
 ];
 
@@ -211,7 +218,7 @@ export function Projects() {
         {/* Other Projects */}
         <FadeIn className="mb-6">
           <h3 className={`text-xl font-bold mb-1 ${theme === "dark" ? "text-white" : "text-black"}`}>
-            Company Dashboards
+            Small Projects
           </h3>
           <p className="text-sm text-zinc-500">Dashboards &amp; landing Pages</p>
         </FadeIn>
