@@ -10,11 +10,11 @@ import { useTheme } from "@/contexts/theme-context";
 
 const professionalProjects = [
   {
-    title: "SOOLDD",
+    title: "SOLDDD",
     description: "Built a real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
     tags: ["React Native", "Sendbird", "In-App Subscription"],
     company: "NewagesysIT",
-    liveUrl: "https://staging.sooldd.com/",
+    liveUrl: "https://solddd.com/",
     repoUrl: "#",
   },
   {
