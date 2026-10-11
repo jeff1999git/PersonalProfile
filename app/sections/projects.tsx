@@ -11,8 +11,8 @@ import { useTheme } from "@/contexts/theme-context";
 const professionalProjects = [
   {
     title: "SOLDDD",
-    description: "Built a real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
-    tags: ["React Native", "Sendbird", "In-App Subscription"],
+    description: "Built a fullstack real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
+    tags: ["Next.js", "Sendbird video call", "In-App Subscription"],
     company: "NewagesysIT",
     liveUrl: "https://solddd.com/",
     repoUrl: "#",
@@ -20,7 +20,7 @@ const professionalProjects = [
   {
     title: "EASY VACAY",
     description: "Developed a travel booking platform with itinerary browsing, payment integration, and seamless user onboarding.",
-    tags: ["React Native", "Stripe", "Social Auth"],
+    tags: ["React.js", "Stripe", "Social Auth"],
     company: "NewagesysIT",
     liveUrl: "https://easyvacayplanner.com/",
     repoUrl: "#",
@@ -28,7 +28,7 @@ const professionalProjects = [
   {
     title: "AUNTIE",
     description: "Created a platform connecting parents with verified caregivers, featuring real-time chat and booking system.",
-    tags: ["React Native", "Socket.io", "Swagger"],
+    tags: ["React Native", "Socket.io", "Postman API"],
     company: "NewagesysIT",
     liveUrl: "https://www.auntie-app.com/",
     repoUrl: "#",
