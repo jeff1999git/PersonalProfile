@@ -12,7 +12,7 @@ const experiences = [
     location: "Kochi, India",
     period: "May 2024 – Present",
     bullets: [
-      "Developed and enhanced multiple cross-platform mobile applications using React Native, focusing on performance, usability, and scalable architecture in an Agile environment.",
+      "Developed and enhanced multiple cross-platform mobile & web applications, focusing on performance, usability, and scalable architecture in an Agile environment.",
       "Collaborated with clients and cross-functional teams to gather requirements, contribute to solution design, and ensure timely delivery of high-quality applications.",
       "Built a real estate mobile application (SOLDDD) from scratch using React Native, enabling users to create, manage, and browse property listings with integrated real-time chat and Sendbird video calling.",
       "Implemented subscription-based advertising and agent onboarding features, establishing a monetization model and improving platform engagement.",

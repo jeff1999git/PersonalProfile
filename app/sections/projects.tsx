@@ -67,8 +67,8 @@ const coreProducts = [
   },
   {
     title: "Bus Booking Platform",
-    description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    description: "Clickable front-end prototype of a booking and operations app for a private shuttle bus service, with separate customer, driver and admin areas. Customers search trips and book seats, drivers see their trips and passenger lists, and admins manage buses, drivers, trips, holidays and bookings. Every screen reads data through typed service interfaces backed by mock data, so a real API can be connected later, and Playwright end-to-end tests cover the main flows.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query", "React Hook Form", "Zod", "Playwright", "Turborepo"],
     liveUrl: "https://excelcabs.vercel.app/",
     repoUrl: "#",
   }, 
