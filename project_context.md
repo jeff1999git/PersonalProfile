@@ -1,6 +1,6 @@
 # Project handbook: Personal Portfolio
 
-> **Last updated:** 2026-10-11 · branch `dev` · commit `ec374da`, plus uncommitted work: a new Royal King Home Page card in `app/sections/projects.tsx`, with this handbook updated to match (see the first entry in section 18).
+> **Last updated:** 2026-10-11 · branch `dev` · commit `f5715af`, plus uncommitted work: `app/favicon.ico` replaced with a "J" icon, with this handbook updated to match (see the first entry in section 18).
 >
 > **Secrets policy:** This file holds no secret values and no personal contact data, and it must stay that way. The project currently has no secrets at all (section 6.6). If it ever gets any, they live only in the hosting dashboard and in untracked `.env*` files; this file names the config key and where it lives, never the value. Email addresses, phone numbers and profile links are cited by file and line, never copied. Do not open or paste `.env` files, keystores, private keys, service-account files, or anything under `.next/`.
 >
@@ -95,7 +95,7 @@ Do these after every change to the repository, in the same working session, befo
 | Site title | "Jeffin Jose V \| Full-Stack Developer" (`app/layout.tsx:14`) |
 | Package name and version | `personal-portfolio` `0.1.0` (`package.json:2-3`); the version has never been bumped and there are no git tags |
 | Repository | `https://github.com/jeff1999git/PersonalProfile` (remote `origin`); public or private is **unverified** |
-| Branches | `dev` is the working branch. `main` receives pull requests from `dev` (five merged so far). `origin/main` is at `539a590` and holds every commit of `dev` (section 17.1) |
+| Branches | `dev` is the working branch. `main` receives pull requests from `dev` (five merged so far). `origin/main` is at `539a590`; `dev` is one commit ahead of it, `f5715af` (section 17.1) |
 | Framework | Next.js 16.2.3, App Router, Turbopack for dev and build |
 | UI | React 19.2.4, TypeScript 5.9.3 (strict), Tailwind CSS 4.2.2 configured in CSS (there is no `tailwind.config` file) |
 | Libraries | framer-motion 12.38.0 (animation), lucide-react 0.487.0 (icons), clsx 2.1.1 and tailwind-merge 3.5.0 (class names) |
@@ -307,7 +307,7 @@ app/                   App Router root; the only route is /
   layout.tsx           root layout: font, metadata, provider, header, footer
   page.tsx             the page: five components in order
   globals.css          Tailwind import, scan exclusion, global rules
-  favicon.ico          site icon
+  favicon.ico          site icon: a white J on a black square
   sections/            plain folder, not a route (no page file)
     hero.tsx           portrait, name, headline, bio, social links
     experience.tsx     experiences array and its cards
@@ -524,7 +524,8 @@ None: `grep -rnE "<form|<input|<textarea|<select|onSubmit" app components contex
 
 ### 6.9 Metadata and SEO
 
-- **Set**, all in `app/layout.tsx`: `title` and `description` (`:13-16`); `viewport` with `width`, `initialScale` and `themeColor` `#000000` (`:18-22`, see BUG-16); `lang="en"` (`:31`). The only icon is `app/favicon.ico`.
+- **Set**, all in `app/layout.tsx`: `title` and `description` (`:13-16`); `viewport` with `width`, `initialScale` and `themeColor` `#000000` (`:18-22`, see BUG-16); `lang="en"` (`:31`). The only icon is `app/favicon.ico` (next bullet).
+- **Icon.** `app/favicon.ico` is a white "J" on a black rounded square, drawn on 2026-10-11 in place of the icon that came with the first commit. It holds four PNG images: 16, 32, 48 and 256 px. Next.js makes the `/favicon.ico` route and the `<link rel="icon">` tag from the file; nothing in `app/layout.tsx` names it. To redraw it, render this shape at each of the four sizes and pack the PNG files into one `.ico`: a square 32 units wide with corner radius 7, filled `#000`, and the path `M22 6V18a6 6 0 0 1-12 0v-2` stroked `#fff` at width 4 with no fill. Every edge of the letter sits on an even unit, so the 16 px image has sharp edges; keep that when changing the shape.
 - **Absent** (see TD-12): `metadataBase`, Open Graph and Twitter tags, canonical URL, `robots`, `sitemap`, web manifest, touch icon, structured data. `/robots.txt` and `/sitemap.xml` are unknown URLs (404), and shared links carry no preview image.
 
 ### 6.10 Error handling
@@ -597,7 +598,7 @@ Production build, measured 2026-10-11 (verified in browser). Every request goes 
 | JavaScript (async) | 8 | 212,225 (see TD-15) |
 | Font: Inter, Latin subset, preloaded | 1 | 48,732 |
 | Portrait through `/_next/image` | 1 | 13,921 on desktop; 24,853 on a phone at 2x |
-| Favicon | 1 | not measured |
+| Favicon | 1 | not measured; the file is 5,834 bytes |
 
 - **Fonts:** self-hosted. Six more Inter subset files exist and download only if the page shows a character from their range.
 - **Analytics:** none. **Cookies:** none. **Third-party scripts:** none. Whether the host injects analytics from its dashboard is **unverified**.
@@ -1464,7 +1465,7 @@ There are no app stores for this project. It is a website, with no store listing
 
 - All work is committed on `dev`. Since the first commit, `origin/main` has received only pull-request merges from `dev`: five so far, each a merge commit whose content is identical to the `dev` tip it merged.
 - There are no tags, no version bumps (`package.json:3` has been `0.1.0` since the first commit) and no automated gate.
-- Every commit on `dev`, up to `ec374da`, has been on `origin/main` since pull request 5 (2026-10-11). Work that is not committed yet is named in the "Last updated" line at the top.
+- Every commit on `dev`, up to `ec374da`, has been on `origin/main` since pull request 5 (2026-10-11). `f5715af` came after it and is not on `origin/main`. Work that is not committed yet is named in the "Last updated" line at the top.
 
 ### 14.3 Decided by the owner (not in the code)
 
@@ -1566,7 +1567,6 @@ Do not change these without being asked: the code cannot say which side is right
 | CNT-9 | P3 | AUNTIE: Experience says chat and video; the card says chat and booking | `app/sections/experience.tsx:23`; `app/sections/projects.tsx:30` | verified in code | Owner confirms |
 | CNT-10 | P3 | Flavory is tagged React Native and Firebase, but its live link is a web deployment | `app/sections/projects.tsx:123-124` | verified in code | Owner confirms |
 | CNT-11 | P3 | Site title and hero say "Full-Stack Developer"; the current job title is "Software Engineer" | `app/layout.tsx:14`; `app/sections/experience.tsx:10` | verified in code | Owner confirms |
-| CNT-12 | P3 | The favicon looks like the framework's template icon | `app/favicon.ico` | **unverified** (judged from its file size; not viewed) | Owner supplies an icon if wanted |
 | CNT-15 | P3 | The "Code" button of the Scroll Animation Website card opens a repository named `testing-repo`, which has no description and still has the framework's template README; the site it deploys is a Formula 1 themed demo | `app/sections/projects.tsx:86-90` | verified in code (the repository's default branch, read on 2026-10-11) | Owner renames the repository and writes a README, or accepts |
 | CNT-16 | P3 | The "Code" button of the Royal King Home Page card opens a repository with no README and no description, and the website link in its About box points to a host that returns 404, not to the card's live URL | `app/sections/projects.tsx:110-111` | verified in code (the repository's default branch and its GitHub metadata, read on 2026-10-11; the About link returned 404 and the card's live URL 200) | Owner adds a README and corrects the About link, or accepts |
 
@@ -1615,6 +1615,7 @@ Open questions. The last column says how to settle each.
 | UNV-10 | P3 | Whether `npx tsc --noEmit` passes on a fresh clone, before `next-env.d.ts` exists | `.gitignore:41` | **unverified** | Try a clean clone; if it fails, run `npx next typegen` first |
 | UNV-11 | P3 | That a production build really fails offline (read from the font loader, never tried) | `app/layout.tsx:2` | **unverified** | Build once with the network blocked |
 | UNV-12 | P3 | That the three email links give a signed-in visitor a Gmail compose window with the address filled in, and what they do on a phone with the Gmail app | `app/sections/contact.tsx:16`, `:61`; `app/sections/hero.tsx:118` | **unverified**: the test browser was not signed in and landed on Google's sign-in page | Click each link once in a signed-in browser and once on a phone |
+| UNV-13 | P3 | How the new site icon looks in a real browser tab, in a bookmark and on a phone home screen | `app/favicon.ico` | **unverified**: headless Chrome draws no tab strip, so the served file was decoded and inspected instead | Open the site in a normal browser; reload without the cache if the old icon still shows |
 
 ### 15.7 Recently resolved
 
@@ -1630,7 +1631,8 @@ The last column says what was done and what follows.
 | CNT-14 | P3 | The Royal King Water Supply card had no live URL and no repository link, so it showed no buttons | `app/sections/projects.tsx:65-66` | verified in browser: the card shows "Live URL"; the URL returned 200 | The owner added the live URL on 2026-10-11, in `ef35352`. `repoUrl` stays `"#"` |
 | CNT-8 | P2 | EASY VACAY is tagged "React.js" in Projects but was listed under a role titled "React Native Mobile App Developer" | `app/sections/projects.tsx:23`; `app/sections/experience.tsx:10`, `:15`, `:20` | verified in code | The owner renamed the role "Software Engineer" in `06789df` and reworded the first bullet to cover mobile and web in `e2d7e99` (2026-10-11) |
 | BUG-2 | P1 | Contact cards were not links although they showed an arrow; the phone number was not tappable anywhere | `app/sections/contact.tsx:71-109` | verified in browser: five anchors in the section, one `tel:` link on the page, a profile card opens a new tab | Done 2026-10-11 in `44b9686`: each card is wrapped in an anchor with the entry's `href` |
-| BLK-3 | P1 | Unreleased work: `dev` was 10 commits ahead of `origin/main`, which still had the old SOOLDD name and staging URL and none of the docs | `app/sections/projects.tsx:13-17`; `app/sections/experience.tsx:17` | verified in code: `git rev-list --left-right --count origin/main...dev` prints `5 0`, and `539a590` holds the same files as `ec374da` | The owner merged pull requests 4 (`40c2aa2`) and 5 (`539a590`) on 2026-10-11. Which branch the host deploys is still **unverified** (UNV-1) |
+| BLK-3 | P1 | Unreleased work: `dev` was 10 commits ahead of `origin/main`, which still had the old SOOLDD name and staging URL and none of the docs | `app/sections/projects.tsx:13-17`; `app/sections/experience.tsx:17` | verified in code: after the merges `git rev-list --left-right --count origin/main...dev` printed `5 0`, and `539a590` holds the same files as `ec374da` | The owner merged pull requests 4 (`40c2aa2`) and 5 (`539a590`) on 2026-10-11. Which branch the host deploys is still **unverified** (UNV-1) |
+| CNT-12 | P3 | The favicon was the icon that came with the first commit, which looked like the framework's template icon | `app/favicon.ico` | verified in browser: the page's icon link returns the new file, and the browser decodes it to a white letter on black with transparent corners | Done 2026-10-11: replaced with a "J" icon at the owner's request. Its look in a real tab is UNV-13 |
 
 ## 16. Testing, quality baselines and debugging recipes
 
@@ -1666,7 +1668,7 @@ Measured on 2026-10-11 at `50ac264` unless a row says otherwise (Windows 11, Nod
 
 About ten minutes. Use the dev server already running at `http://localhost:3000` (never start a second one, section 16.5), or better a production build: `npm run build`, then `npx next start -p 3100`. Keep the console open. Known failures are named so nobody reports them again.
 
-1. Load `/` at desktop width. Expect the header to slide in and the portrait, name and headline to fade in within a second or two; 0 console errors.
+1. Load `/` at desktop width. Expect the header to slide in and the portrait, name and headline to fade in within a second or two; 0 console errors. The browser tab shows a white "J" on a black square.
 2. Click "Experience", "Projects", "Connect", then the brand. Expect each section top at the top of the window with its heading visible below the header; the brand returns to the top.
 3. Scroll slowly to the footer. Expect every block to fade in once, and 16 project cards with 14 "Live URL" and 8 "Code" buttons. Known: EVENT APP has no buttons and NoWaitr only "Code" (CNT-6); the four "Independent Works" cards have only "Live URL".
 4. Click one "Live URL", one "Code", and the hero "GitHub" and "LinkedIn": each opens a new tab. "Gmail" and "Send Message" open Gmail's compose page in a new tab. Click the four contact cards: "Email", "LinkedIn" and "GitHub" open a new tab and "Phone" opens the dialler.
@@ -1738,8 +1740,8 @@ Screenshot gotchas:
 
 ## 17. History, branches and versioning
 
-- Source: git at `539a590`, read on 2026-10-11 (`git log --all`, `git show --stat` and every diff). There are 36 commits across all refs (a ref is a named pointer to a commit, such as a branch or `origin/main`), no tags and no stashes.
-- 31 ordinary commits form one straight line, the history of `dev`. The other 5 are merge commits (two parents each) found only on `origin/main`.
+- Source: git at `f5715af`, read on 2026-10-11 (`git log --all`, `git show --stat` and every diff). There are 37 commits across all refs (a ref is a named pointer to a commit, such as a branch or `origin/main`), no tags and no stashes.
+- 32 ordinary commits form one straight line, the history of `dev`. The other 5 are merge commits (two parents each) found only on `origin/main`.
 - Only the merges have a message body. Elsewhere the diff is the only record of what changed, and nothing records why.
 - IDs such as GR-5 are the golden rules of section 2. IDs such as BLK-1, SEC-1 or TD-8 are the open items of section 15.
 
@@ -1747,7 +1749,7 @@ Screenshot gotchas:
 
 | Ref | At | Role |
 |---|---|---|
-| `dev`, `origin/dev` | `ec374da` | Working branch: every ordinary commit is made here. No unpushed commits |
+| `dev`, `origin/dev` | `f5715af` | Working branch: every ordinary commit is made here. No unpushed commits |
 | `origin/main` | `539a590` | Release branch; only pull-request merges from `dev` |
 | `main` (local) | `df63611` | Stale: still the first commit |
 
@@ -1770,10 +1772,10 @@ There are no feature or release branches.
 
 #### What "ahead" and "behind" mean here
 
-`git rev-list --left-right --count origin/main...dev` prints `5 0`: `dev` is 0 commits ahead of `origin/main` and 5 behind. That GitHub displays the same two numbers is **unverified**.
+`git rev-list --left-right --count origin/main...dev` prints `5 1`: `dev` is 1 commit ahead of `origin/main` and 5 behind. That GitHub displays the same two numbers is **unverified**.
 
-- Nothing is ahead: pull request 5 brought `ec374da`, the tip of `dev`, to `origin/main`. A commit made on `dev` after that is unreleased until the next pull request.
-- The 5 behind are the merge commits. They hold nothing `dev` lacks (`ec374da` has the same files as `539a590`); they count only because `main` is never merged back into `dev`.
+- The 1 ahead is `f5715af`, the Royal King Home Page card, committed after pull request 5. It is unreleased until the next pull request.
+- The 5 behind are the merge commits. They hold nothing `dev` lacks (`ec374da`, the parent of `f5715af`, has the same files as `539a590`); they count only because `main` is never merged back into `dev`.
 - Do not rebase `dev` to clear the count. A rebase gives commits new hashes and `dev` is already pushed, so it would need a force-push, all to change a number that has no effect.
 
 #### The stale local `main`
@@ -1802,7 +1804,7 @@ If the owner starts versioning, these are the places:
 
 ### 17.3 Timeline
 
-All 36 commits, oldest first.
+All 37 commits, oldest first.
 
 - Times are as recorded: rows 14 to 18 and 20 are in UTC, the rest at +05:30. 07:54 UTC is 13:24 at +05:30, so row 20 follows row 19.
 - `<account>` stands for the GitHub account name in the repository URL.
@@ -1846,6 +1848,7 @@ All 36 commits, oldest first.
 | 34 | `40c2aa2` | 2026-10-11 18:42 | Merge pull request #4 from `<account>`/dev | Merge only: rows 24 to 33 |
 | 35 | `ec374da` | 2026-10-11 18:46 | Refactor code structure for improved readability and maintainability | The three email links changed from `mailto:` to Gmail's compose page; handbook updated to match. **Misleading:** the same subject as rows 26 to 29, 32 and 33, and again nothing was refactored |
 | 36 | `539a590` | 2026-10-11 18:47 | Merge pull request #5 from `<account>`/dev | Merge only: row 35 |
+| 37 | `f5715af` | 2026-10-11 19:28 | Refactor code structure for improved readability and maintainability | Royal King Home Page card; handbook updated to match, pull requests 4 and 5 recorded in it. **Misleading:** the same subject as rows 26 to 29, 32, 33 and 35, and again nothing was refactored |
 
 - Nine subjects are "updates", one is "updated" and one is "fdd". Read the diff, not the subject.
 - Only `a8e9168`, `50ac264`, `06789df` and `ef1bf4a` use a `fix:` prefix. Nothing enforces a convention.
@@ -1866,7 +1869,7 @@ All 36 commits, oldest first.
 | 9. Handbook | 2026-10-11 | `d1fd46b` | Handbook, agent instructions, docs corrections, docs exclusion; released in pull request 4 |
 | 10. Project cards | 2026-10-11 | `17149a3`, `f9422c8`, `ef35352`, `06789df`, `ef1bf4a`, `e2d7e99` | The entries of section 18 from the card swap to the Bus Booking Platform card, the job title among them; released in pull request 4 |
 | 11. Contact links | 2026-10-11 | `44b9686`, pull request 4; `ec374da`, pull request 5 | Contact cards made into links; email links moved to Gmail's compose page |
-| 12. One more project card | 2026-10-11 | uncommitted | Royal King Home Page, the newest entry of section 18; not released |
+| 12. One more card and the site icon | 2026-10-11 | `f5715af`, then uncommitted | Royal King Home Page card; "J" site icon. The two newest entries of section 18; not released |
 
 ### 17.5 Things tried and then removed or reverted
 
@@ -1907,18 +1910,24 @@ Everything accidental arrived in the first commit, `df63611`. Nothing was added 
 - On disk, `personal-portfolio/` holds only those tracked files: no source and no `package.json`.
 - One stale build file changed again in `3520172`, so run `git status` before staging (GR-19).
 - The build errors in `dev.log` about missing icon exports came from the nested copy and do not apply to the current source (section 2.4).
-- Not done as of 2026-10-11: removal was proposed and waits for the owner (GR-8). `git rm --cached` only stops future commits from carrying the files. They are in the first commit, so removing them from history means rewriting every commit (36 as of `539a590`) and force-pushing both branches.
+- Not done as of 2026-10-11: removal was proposed and waits for the owner (GR-8). `git rm --cached` only stops future commits from carrying the files. They are in the first commit, so removing them from history means rewriting every commit (37 as of `f5715af`) and force-pushing both branches.
 - No secret was ever committed: see the secret scan at the top of section 15.
 
 ## 18. Changelog
 
 Newest first, in the shape of the template in section 0.3. Entries dated before 2026-10-11 were reconstructed from git on 2026-10-11 and point to rows of section 17.3 instead of repeating them. "Not recorded" means that neither the commit message nor the diff states it.
 
-### 2026-10-11 · dev · Royal King Home Page card added (uncommitted)
+### 2026-10-11 · dev · Site icon replaced with a "J" (uncommitted)
+- **What:** `app/favicon.ico` was replaced. The old file came with the first commit (25,931 bytes; 16, 32, 48 and 256 px). The new one is a white "J" on a black rounded square (5,834 bytes; the same four sizes, stored as PNG images). No other file changed: Next.js makes the `/favicon.ico` route and the icon link tag from the file. Section 6.9 now describes the icon and how to redraw it. Sections 1, 5.1, 7.4, 14, 15, 16.3 and 17 were updated, CNT-12 moved to "Recently resolved", UNV-13 was opened, and commit `f5715af` was recorded.
+- **Why:** The owner asked on 2026-10-11 for the favicon to be a "J" icon. White on black matches the header brand in the default dark theme.
+- **Verified:** Type-check, source lint and production build pass. Verified in browser on a production build: the page has one icon link, to `/favicon.ico` with type `image/x-icon`; the URL returns 200 with exactly the bytes of the source file; the browser decodes it to a 256 px image with transparent corners, a black background and white where the letter is; there are 0 console errors. The 16, 32 and 48 px images were looked at enlarged. The production CSS is unchanged at 35,153 bytes. No dev server was running, so dev mode was not checked. How the icon looks in a real tab is **unverified** (UNV-13).
+- **Follow-ups:** Owner to look at the tab and commit. Browsers keep site icons in a separate cache, so the old one can linger until a reload without the cache. There is still no Apple touch icon and no SVG icon (TD-12). Not released.
+
+### 2026-10-11 · dev · Royal King Home Page card added (`f5715af`)
 - **What:** The owner added an eighth card to "Small Projects", Royal King Home Page (`app/sections/projects.tsx:106-112`), in fifth place, with its two links and with text copied from the Scroll Animation Website card. The agent then wrote the card's description (`:108`) and tags (`:109`) from its repository and dropped the `.git` suffix from the repository link (`:111`). There are now 16 cards (4, 4 and 8), with 14 "Live URL" and 8 "Code" buttons. The file grew from 250 to 257 lines, so citations to it from line 106 on were shifted by 7 throughout this handbook. Sections 3.2, 7.3, 7.4, 8.6, 8.11, 9.9, 15, 16.2, 16.3 and 17.4 were updated and CNT-16 was opened.
 - **Why:** The owner asked on 2026-10-11 for the new card to be filled in from its GitHub repository, as was done for the two cards before it.
 - **Verified:** Type-check, source lint and production build pass. Verified in browser on a production build, at 1440 px in both themes and at 390 and 320 px: "Small Projects" lists eight cards in the order of the file, the new card shows its seven tags and both buttons, each button is a new-tab link with `rel="noopener noreferrer"`, nothing overflows, and there are 0 console errors. No dev server was running, so the page was not checked in dev mode. All 26 outbound URLs were requested and 25 returned 200 (section 16.2); the new live page's title names the same business as the repository's layout file. The repository facts are verified in code from a copy of its default branch taken on 2026-10-11. Page weight was re-measured (section 16.2) and the production CSS is unchanged at 35,153 bytes.
-- **Follow-ups:** Owner to review the card wording and the shortened link, and commit. The repository behind the "Code" button has no README (CNT-16). The caption under "Small Projects" still reads "Dashboards & landing Pages" (CNT-5). Not released.
+- **Follow-ups:** Committed by the owner in `f5715af`. The repository behind the "Code" button has no README (CNT-16). The caption under "Small Projects" still reads "Dashboards & landing Pages" (CNT-5). Not released.
 
 ### 2026-10-11 · dev · Pull requests 4 and 5 merged: every commit on `dev` is on `main` (`539a590`)
 - **What:** The owner merged pull request 4 (`40c2aa2`, the ten commits `a8e9168` to `44b9686`) and pull request 5 (`539a590`, commit `ec374da`) into `main` on GitHub. BLK-3 moved to "Recently resolved". The release list (section 12), the branch table, the ahead and behind counts, timeline rows 34 to 36 and the phases (section 17), and the notes in sections 1, 14 and 15 were updated, and local `main` is now recorded as 35 commits behind (GR-20, TD-11). This entry was added afterwards.
