@@ -45,11 +45,11 @@ const professionalProjects = [
 
 const coreProducts = [
   {
-    title: "NoWaitr",
-    description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
-    tags: ["ImageKit", "QRCode.react", "Resend API"],
-    liveUrl: "#",
-    repoUrl: "https://github.com/jeff1999git/NoWaitr",
+    title: "Ulsaham Entertainments",
+    description: "Built a production event booking and ticketing platform for an events company in Kerala, India: a customer website, a REST API, and a staff admin panel, with Razorpay payments, QR-code tickets, and role-based access for staff.",
+    tags: ["Astro", "React", "Next.js", "TypeScript", "MongoDB", "Razorpay", "Vercel"],
+    liveUrl: "https://www.ulsaaham.com/",
+    repoUrl: "https://github.com/jeff1999git/ulsaaham.com",
   },
   {
     title: "BookNGo",
@@ -66,21 +66,21 @@ const coreProducts = [
     repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
   },
   {
-    title: "DD Ammini",
-    description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
-    tags: ["Next.js", "Node.js", "Vercel"],
-    liveUrl: "https://dd-aminni.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/DDAminni",
+    title: "PinNote",
+    description: "Website feedback tool: a site owner adds one script tag, reviewers pin comments to any element on the live page, and the team answers and resolves them in a dashboard. Built team access with single-use invite links, invite emails, the landing and sign-in redesign, and database migrations, in a project with 500+ automated tests.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Auth.js", "Nodemailer", "Vitest", "Playwright", "Vercel"],
+    liveUrl: "#",
+    repoUrl: "#",
   },
 ];
 
 const otherProjects = [
   {
-    title: "Ulsaaham",
-    description: "Event management and ticketing platform for local community events.",
-    tags: ["React", "Node.js"],
-    liveUrl: "https://ulsaaham.com/",
-    repoUrl: "https://github.com/jeff1999git/ulsaaham.com",
+    title: "NoWaitr",
+    description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
+    tags: ["ImageKit", "QRCode.react", "Resend API"],
+    liveUrl: "#",
+    repoUrl: "https://github.com/jeff1999git/NoWaitr",
   },
   {
     title: "Flavory",
@@ -95,6 +95,13 @@ const otherProjects = [
     tags: ["Next.js", "Tailwind CSS"],
     liveUrl: "https://seffer-exports.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/SefferExports",
+  },
+  {
+    title: "DD Ammini",
+    description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
+    tags: ["Next.js", "Node.js", "Vercel"],
+    liveUrl: "https://dd-aminni.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/DDAminni",
   },
 ];
 
