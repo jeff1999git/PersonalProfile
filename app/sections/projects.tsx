@@ -10,17 +10,17 @@ import { useTheme } from "@/contexts/theme-context";
 
 const professionalProjects = [
   {
-    title: "SOOLDD",
-    description: "Built a real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
-    tags: ["React Native", "Sendbird", "In-App Subscription"],
+    title: "SOLDDD",
+    description: "Built a fullstack real estate platform with property listings, Sendbird-powered video calling, in-app subscriptions, and AI chatbot integration.",
+    tags: ["Next.js", "Sendbird video call", "In-App Subscription"],
     company: "NewagesysIT",
-    liveUrl: "https://staging.sooldd.com/",
+    liveUrl: "https://solddd.com/",
     repoUrl: "#",
   },
   {
     title: "EASY VACAY",
     description: "Developed a travel booking platform with itinerary browsing, payment integration, and seamless user onboarding.",
-    tags: ["React Native", "Stripe", "Social Auth"],
+    tags: ["React.js", "Stripe", "Social Auth"],
     company: "NewagesysIT",
     liveUrl: "https://easyvacayplanner.com/",
     repoUrl: "#",
@@ -28,7 +28,7 @@ const professionalProjects = [
   {
     title: "AUNTIE",
     description: "Created a platform connecting parents with verified caregivers, featuring real-time chat and booking system.",
-    tags: ["React Native", "Socket.io", "Swagger"],
+    tags: ["React Native", "Socket.io", "Postman API"],
     company: "NewagesysIT",
     liveUrl: "https://www.auntie-app.com/",
     repoUrl: "#",
@@ -45,19 +45,36 @@ const professionalProjects = [
 
 const coreProducts = [
   {
-    title: "NoWaitr",
-    description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
-    tags: ["ImageKit", "QRCode.react", "Resend API"],
-    liveUrl: "#",
-    repoUrl: "https://github.com/jeff1999git/NoWaitr",
+    title: "PinNote",
+    description: "Website feedback tool: a site owner adds one script tag, reviewers pin comments to any element on the live page, and the team answers and resolves them in a dashboard. Built team access with single-use invite links, invite emails, the landing and sign-in redesign, and database migrations, in a project with 500+ automated tests.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Auth.js", "Nodemailer", "Vitest", "Playwright", "Vercel"],
+    liveUrl: "https://pinnote-demo.vercel.app",
+    repoUrl: "#",
   },
   {
-    title: "BookNGo",
-    description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    liveUrl: "https://bookngo-one.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/Bookngo",
+    title: "Ulsaham Entertainments",
+    description: "Built a production event booking and ticketing platform for an events company in Kerala, India: a customer website, a REST API, and a staff admin panel, with Razorpay payments, QR-code tickets, and role-based access for staff.",
+    tags: ["Astro", "React", "Next.js", "TypeScript", "MongoDB", "Razorpay", "Vercel"],
+    liveUrl: "https://www.ulsaaham.com/",
+    repoUrl: "#",
   },
+  {
+    title: "Royal King Water Supply",
+    description: "Full-stack web app that replaced paper registers for a drinking-water delivery business. Drivers log deliveries, expenses and odometer readings from their phones in an installable PWA, while the owner manages the ledger, customers, fleet and stock from an admin portal with analytics and ledger exports.",
+    tags: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "TanStack Query", "Cloudinary", "PWA", "Turborepo"],
+    liveUrl: "https://royalkingadmin-web.vercel.app/",
+    repoUrl: "#",
+  },
+  {
+    title: "Bus Booking Platform",
+    description: "Clickable front-end prototype of a booking and operations app for a private shuttle bus service, with separate customer, driver and admin areas. Customers search trips and book seats, drivers see their trips and passenger lists, and admins manage buses, drivers, trips, holidays and bookings. Every screen reads data through typed service interfaces backed by mock data, so a real API can be connected later, and Playwright end-to-end tests cover the main flows.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "TanStack Query", "React Hook Form", "Zod", "Playwright", "Turborepo"],
+    liveUrl: "https://excelcabs.vercel.app/",
+    repoUrl: "#",
+  }, 
+];
+
+const otherProjects = [
   {
     title: "JVS Water Supply",
     description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
@@ -66,21 +83,32 @@ const coreProducts = [
     repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
   },
   {
+    title: "Scroll Animation Website",
+    description: "Scroll-driven single-page site on a Formula 1 engineering theme. The hero plays a 240-frame image sequence on a canvas as the visitor scrolls, with chaptered headlines and cursor parallax, followed by pinned spec reveals, animated performance counters and a scroll progress bar.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Canvas"],
+    liveUrl: "https://testing-repo-tan-ten.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/testing-repo",
+  },
+  {
+    title: "BookNGo",
+    description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    liveUrl: "https://bookngo-one.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/Bookngo",
+  }, 
+  {
+    title: "NoWaitr",
+    description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
+    tags: ["ImageKit", "QRCode.react", "Resend API"],
+    liveUrl: "#",
+    repoUrl: "https://github.com/jeff1999git/NoWaitr",
+  },
+  {
     title: "DD Ammini",
     description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
     tags: ["Next.js", "Node.js", "Vercel"],
     liveUrl: "https://dd-aminni.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/DDAminni",
-  },
-];
-
-const otherProjects = [
-  {
-    title: "Ulsaaham",
-    description: "Event management and ticketing platform for local community events.",
-    tags: ["React", "Node.js"],
-    liveUrl: "https://ulsaaham.com/",
-    repoUrl: "https://github.com/jeff1999git/ulsaaham.com",
   },
   {
     title: "Flavory",
@@ -204,7 +232,7 @@ export function Projects() {
         {/* Other Projects */}
         <FadeIn className="mb-6">
           <h3 className={`text-xl font-bold mb-1 ${theme === "dark" ? "text-white" : "text-black"}`}>
-            Company Dashboards
+            Small Projects
           </h3>
           <p className="text-sm text-zinc-500">Dashboards &amp; landing Pages</p>
         </FadeIn>

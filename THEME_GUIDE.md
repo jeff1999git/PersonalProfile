@@ -2,6 +2,8 @@
 
 This document outlines the comprehensive theme system implemented in the Personal Portfolio application.
 
+> The full project handbook is [`project_context.md`](project_context.md). Where this guide and the handbook disagree, the handbook is right. Known gaps in the theme system are listed at the end of this guide.
+
 ## Overview
 
 The application supports a complete dark/light theme switching system that affects all components consistently. The theme is managed through React Context and persists across sessions using localStorage.
@@ -14,7 +16,7 @@ The theme context provides:
 - **Theme state**: 'dark' | 'light'
 - **toggleTheme()**: Function to switch between themes
 - **Automatic persistence**: Theme preference saved to localStorage
-- **Body class management**: Automatically applies appropriate classes to document body
+- **Body class management**: Adds `bg-black text-white` or `bg-white text-black` to the document body. These classes currently have no effect: the `body` rule in `app/globals.css` overrides them, so the body stays black in both themes
 
 ### Usage
 
@@ -68,13 +70,15 @@ All UI components should:
 - ✅ **Text**: Dynamic text colors based on theme
 - ✅ **Button**: All variants support theme switching
 - ✅ **Navigation**: Complete theme integration
-- ✅ **Footer**: Theme-aware styling
+- ✅ **Footer**: Theme-aware border (the text colour is the same in both themes)
+- ✅ **ThemeSeparator**: Theme-aware divider
 
 ### Sections
 - ✅ **Hero**: Profile image background theme-aware
-- ✅ **About**: All text and cards theme-responsive
+- ✅ **Experience**: Cards and content theme-adaptive
 - ✅ **Projects**: Cards and content theme-adaptive
-- ✅ **Contact**: Forms and content theme-support
+- ✅ **Contact**: Cards and content theme-support (there are no forms)
+- **About**: Themed, but not mounted on the page
 
 ## Best Practices for Future Development
 
@@ -96,7 +100,7 @@ export function NewComponent() {
 ```
 
 ### 2. Styling Guidelines
-- Use semantic color tokens (zinc scale)
+- Use the zinc scale classes directly; the CSS variables in `app/globals.css` do not change with the theme
 - Maintain contrast ratios for accessibility
 - Test both themes during development
 - Use conditional classes for theme-specific styles
@@ -116,10 +120,7 @@ Located in Navigation component:
 - Immediate visual feedback
 
 ### CSS Transitions
-All theme changes include smooth transitions:
-```css
-transition-colors duration-300
-```
+Most theme changes are instant. `transition-colors duration-300` is set only on `<body>`, whose colours do not change. Cards use `duration-200`, and links and buttons get a 150ms colour transition from `app/globals.css`.
 
 ## Future Enhancements
 
@@ -140,7 +141,7 @@ transition-colors duration-300
 ### Common Issues
 1. **Component not responding to theme**: Ensure `useTheme` hook is imported and used
 2. **Theme not persisting**: Check localStorage functionality
-3. **Styling conflicts**: Verify CSS specificity and Tailwind class ordering
+3. **Styling conflicts**: The rules for `body`, `h1`-`h6`, `p`, `a` and `button` in `app/globals.css` are outside Tailwind's layers, so they override utility classes on those elements whatever the specificity
 
 ### Debug Steps
 1. Check browser console for errors
@@ -158,4 +159,11 @@ transition-colors duration-300
 - `components/ui/button.tsx` - Theme-aware button variants
 - All section components updated for theme consistency
 
-This theme system ensures a consistent and accessible experience across both light and dark modes throughout the application.
+## Known Gaps
+
+- The first paint is always dark. A stored light preference is applied only after the page hydrates.
+- The `dark` class set on `<html>` is not used by any CSS. Tailwind `dark:` utilities would follow the operating system setting, not the toggle.
+- In light theme the body stays black (visible behind the footer), and the keyboard focus ring and selected text are white.
+- A few colours ignore the theme: muted text in Experience and Projects, the footer text, the hero scroll arrow.
+
+Details and fixes are tracked in the handbook's open-items section.

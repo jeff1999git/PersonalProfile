@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Keep docs out of Tailwind's class scan: class names written in Markdown would be compiled into the CSS */
+@source not "../*.md";
 
 :root {
   --background: #000000;
