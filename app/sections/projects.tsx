@@ -104,6 +104,13 @@ const otherProjects = [
     repoUrl: "https://github.com/jeff1999git/NoWaitr",
   },
   {
+    title: "Royal King Home Page",
+    description: "Mobile-first digital business card for a drinking-water supplier in Thrissur, Kerala. One-tap buttons call, open WhatsApp, Google Maps and Instagram, a Save Contact button downloads a vCard, and Share uses the phone's share sheet with a copy-link fallback. A bulk-order form emails inquiries through a rate-limited API route using Resend, and the cards fade in on scroll over an animated bubble background.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Resend", "vCard", "Web Share API"],
+    liveUrl: "https://royal-king-home.vercel.app",
+    repoUrl: "https://github.com/jeff1999git/RoyalKingHomePage",
+  },
+  {
     title: "DD Ammini",
     description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
     tags: ["Next.js", "Node.js", "Vercel"],
