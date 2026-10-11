@@ -66,11 +66,11 @@ const coreProducts = [
     repoUrl: "#",
   },
   {
-    title: "BookNGo",
+    title: "Bus Booking Platform",
     description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
     tags: ["React", "Node.js", "PostgreSQL"],
-    liveUrl: "https://bookngo-one.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/Bookngo",
+    liveUrl: "https://excelcabs.vercel.app/",
+    repoUrl: "#",
   }, 
 ];
 
@@ -89,6 +89,13 @@ const otherProjects = [
     liveUrl: "https://testing-repo-tan-ten.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/testing-repo",
   },
+  {
+    title: "BookNGo",
+    description: "Built a booking platform that connects customers with local businesses for various services. It enables users to browse services, make bookings, and manage appointments while allowing business owners to list their services and handle bookings.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    liveUrl: "https://bookngo-one.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/Bookngo",
+  }, 
   {
     title: "NoWaitr",
     description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
