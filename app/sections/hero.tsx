@@ -115,7 +115,9 @@ export function Hero() {
                   <span className="text-sm">LinkedIn</span>
                 </motion.a>
                 <motion.a
-                  href="mailto:jeffinmjtcr@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=jeffinmjtcr@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex items-center gap-3 group ${
                     theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'
                   } transition-colors`}
