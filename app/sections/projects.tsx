@@ -45,11 +45,25 @@ const professionalProjects = [
 
 const coreProducts = [
   {
+    title: "PinNote",
+    description: "Website feedback tool: a site owner adds one script tag, reviewers pin comments to any element on the live page, and the team answers and resolves them in a dashboard. Built team access with single-use invite links, invite emails, the landing and sign-in redesign, and database migrations, in a project with 500+ automated tests.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Auth.js", "Nodemailer", "Vitest", "Playwright", "Vercel"],
+    liveUrl: "https://pinnote-demo.vercel.app",
+    repoUrl: "#",
+  },
+  {
     title: "Ulsaham Entertainments",
     description: "Built a production event booking and ticketing platform for an events company in Kerala, India: a customer website, a REST API, and a staff admin panel, with Razorpay payments, QR-code tickets, and role-based access for staff.",
     tags: ["Astro", "React", "Next.js", "TypeScript", "MongoDB", "Razorpay", "Vercel"],
     liveUrl: "https://www.ulsaaham.com/",
-    repoUrl: "https://github.com/jeff1999git/ulsaaham.com",
+    repoUrl: "#",
+  },
+  {
+    title: "Royal King Water Supply",
+    description: "Full-stack web app that replaced paper registers for a drinking-water delivery business. Drivers log deliveries, expenses and odometer readings from their phones in an installable PWA, while the owner manages the ledger, customers, fleet and stock from an admin portal with analytics and ledger exports.",
+    tags: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "TanStack Query", "Cloudinary", "PWA", "Turborepo"],
+    liveUrl: "https://royalkingadmin-web.vercel.app/",
+    repoUrl: "#",
   },
   {
     title: "BookNGo",
@@ -57,30 +71,37 @@ const coreProducts = [
     tags: ["React", "Node.js", "PostgreSQL"],
     liveUrl: "https://bookngo-one.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/Bookngo",
-  },
-  {
-    title: "Royal King Water Supply",
-    description: "Full-stack web app that replaced paper registers for a drinking-water delivery business. Drivers log deliveries, expenses and odometer readings from their phones in an installable PWA, while the owner manages the ledger, customers, fleet and stock from an admin portal with analytics and ledger exports.",
-    tags: ["Next.js", "React", "TypeScript", "MongoDB", "NextAuth", "TanStack Query", "Cloudinary", "PWA", "Turborepo"],
-    liveUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    title: "PinNote",
-    description: "Website feedback tool: a site owner adds one script tag, reviewers pin comments to any element on the live page, and the team answers and resolves them in a dashboard. Built team access with single-use invite links, invite emails, the landing and sign-in redesign, and database migrations, in a project with 500+ automated tests.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Auth.js", "Nodemailer", "Vitest", "Playwright", "Vercel"],
-    liveUrl: "#",
-    repoUrl: "#",
-  },
+  }, 
 ];
 
 const otherProjects = [
+  {
+    title: "JVS Water Supply",
+    description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
+    tags: ["TailwindCSS", "Turborepo", "MongoDB"],
+    liveUrl: "https://jv-swatersupply-web.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
+  },
+  {
+    title: "Scroll Animation Website",
+    description: "Scroll-driven single-page site on a Formula 1 engineering theme. The hero plays a 240-frame image sequence on a canvas as the visitor scrolls, with chaptered headlines and cursor parallax, followed by pinned spec reveals, animated performance counters and a scroll progress bar.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Canvas"],
+    liveUrl: "https://testing-repo-tan-ten.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/testing-repo",
+  },
   {
     title: "NoWaitr",
     description: "Built and deployed a QR-based restaurant ordering system enabling customers to browse menus and place orders seamlessly, while providing real-time order management for restaurant staff.",
     tags: ["ImageKit", "QRCode.react", "Resend API"],
     liveUrl: "#",
     repoUrl: "https://github.com/jeff1999git/NoWaitr",
+  },
+  {
+    title: "DD Ammini",
+    description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
+    tags: ["Next.js", "Node.js", "Vercel"],
+    liveUrl: "https://dd-aminni.vercel.app/",
+    repoUrl: "https://github.com/jeff1999git/DDAminni",
   },
   {
     title: "Flavory",
@@ -95,20 +116,6 @@ const otherProjects = [
     tags: ["Next.js", "Tailwind CSS"],
     liveUrl: "https://seffer-exports.vercel.app/",
     repoUrl: "https://github.com/jeff1999git/SefferExports",
-  },
-  {
-    title: "DD Ammini",
-    description: "Built a lightweight apartment management web app for family, cleaning, and sticky-note tracking. It serves as a digital assistant for apartment residents to manage daily operations and communication.",
-    tags: ["Next.js", "Node.js", "Vercel"],
-    liveUrl: "https://dd-aminni.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/DDAminni",
-  },
-  {
-    title: "JVS Water Supply",
-    description: "Water supply management system that enables admins to manage drivers, vehicles, and supply points while allowing drivers to log water deliveries and cash transactions in real-time.",
-    tags: ["TailwindCSS", "Turborepo", "MongoDB"],
-    liveUrl: "https://jv-swatersupply-web.vercel.app/",
-    repoUrl: "https://github.com/jeff1999git/JVSwatersupply",
   },
 ];
 
