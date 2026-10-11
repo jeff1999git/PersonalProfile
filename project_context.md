@@ -712,7 +712,7 @@ The site is one page: header, Hero, Theme separator, Experience, Projects, Conta
 
 | # | Role | Company | Location | Dates | Bullets | Lines |
 |---|---|---|---|---|---|---|
-| 1 | React Native Mobile App Developer | NewagesysIT | Kochi, India | May 2024 – Present | 9 | `:9-25` |
+| 1 | Software Engineer | NewagesysIT | Kochi, India | May 2024 – Present | 9 | `:9-25` |
 | 2 | Flutter Full-Stack Developer Intern | Logix Space Technologies Pvt Ltd | Kochi, India | Feb 2024 – May 2024 | 8 | `:26-41` |
 
 - Entry 1 names three products in its bullets: SOLDDD with "Sendbird video calling" (`:17`), EASY VACAY (`:20`) and AUNTIE (`:22`). Entry 2 states its stack at `:32`.
@@ -1560,7 +1560,7 @@ Do not change these without being asked: the code cannot say which side is right
 | CNT-7 | P3 | The unmounted About section holds template statistics that contradict the Experience timeline | `app/sections/about.tsx:10-15` | verified in code | Rewrite before any re-mount (TD-1) |
 | CNT-9 | P3 | AUNTIE: Experience says chat and video; the card says chat and booking | `app/sections/experience.tsx:23`; `app/sections/projects.tsx:30` | verified in code | Owner confirms |
 | CNT-10 | P3 | Flavory is tagged React Native and Firebase, but its live link is a web deployment | `app/sections/projects.tsx:109-110` | verified in code | Owner confirms |
-| CNT-11 | P3 | Site title and hero say "Full-Stack Developer"; the current job title is "React Native Mobile App Developer" | `app/layout.tsx:14`; `app/sections/experience.tsx:10` | verified in code | Owner confirms |
+| CNT-11 | P3 | Site title and hero say "Full-Stack Developer"; the current job title is "Software Engineer" | `app/layout.tsx:14`; `app/sections/experience.tsx:10` | verified in code | Owner confirms |
 | CNT-12 | P3 | The favicon looks like the framework's template icon | `app/favicon.ico` | **unverified** (judged from its file size; not viewed) | Owner supplies an icon if wanted |
 | CNT-15 | P3 | The "Code" button of the Scroll Animation Website card opens a repository named `testing-repo`, which has no description and still has the framework's template README; the site it deploys is a Formula 1 themed demo | `app/sections/projects.tsx:86-90` | verified in code (the repository's default branch, read on 2026-10-11) | Owner renames the repository and writes a README, or accepts |
 

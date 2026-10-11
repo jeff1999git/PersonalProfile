@@ -7,7 +7,7 @@ import { useTheme } from "@/contexts/theme-context";
 
 const experiences = [
   {
-    role: "React Native Mobile App Developer",
+    role: "Software Engineer",
     company: "NewagesysIT",
     location: "Kochi, India",
     period: "May 2024 – Present",
